@@ -59,13 +59,13 @@ export default function Navbar() {
         <a 
           href="#home" 
           onClick={(e) => handleNavClick(e, '#home')}
-          className="flex items-center gap-2.5 sm:gap-3 group shrink-0"
+          className="flex items-center group shrink-0"
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-brand-accent group-hover:rotate-90 transition-transform duration-700 ease-out sm:w-6 sm:h-6">
-            <rect x="2" y="2" width="20" height="20" stroke="currentColor" strokeWidth="2" />
-            <circle cx="12" cy="12" r="4" fill="currentColor" />
-          </svg>
-          <span className="text-lg sm:text-xl font-display font-bold tracking-[0.18em] sm:tracking-[0.2em] uppercase">Webora</span>
+          <img 
+            src="/logo.png" 
+            alt="Webora" 
+            className="h-8 sm:h-9 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+          />
         </a>
 
         {/* Desktop Nav & CTA */}
@@ -136,6 +136,14 @@ export default function Navbar() {
             className="md:hidden overflow-hidden bg-[#050706]/98 backdrop-blur-2xl border-b border-brand-border shadow-2xl"
           >
             <div className="container mx-auto px-5 py-6 flex flex-col gap-1 max-h-[calc(100vh-80px)] overflow-y-auto">
+              <div className="flex items-center justify-between pb-4 mb-2 border-b border-white/10">
+                <img 
+                  src="/logo.png" 
+                  alt="Webora" 
+                  className="h-7 w-auto object-contain" 
+                />
+                <span className="text-[10px] font-mono tracking-widest text-brand-accent uppercase">Brand Studio</span>
+              </div>
               {navLinks.map((link) => (
                 <a
                   key={link.name}

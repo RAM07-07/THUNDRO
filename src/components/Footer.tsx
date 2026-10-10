@@ -10,6 +10,17 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 sm:mb-16 lg:mb-24 gap-8 sm:gap-12">
           
           <div className="flex-grow">
+            <div className="flex items-center gap-3.5 mb-4 sm:mb-6">
+              <img 
+                src="/logo-icon.png" 
+                alt="Webora Emblem" 
+                className="w-9 h-9 sm:w-11 sm:h-11 object-contain" 
+              />
+              <div className="flex flex-col">
+                <span className="text-xs sm:text-sm font-display font-bold tracking-[0.2em] uppercase text-white">Webora</span>
+                <span className="text-[10px] sm:text-xs text-brand-accent tracking-widest uppercase font-mono">Digital Design &amp; Development</span>
+              </div>
+            </div>
             <h2 className="text-[18vw] sm:text-[15vw] leading-[0.8] font-display font-bold tracking-tighter uppercase mb-3 sm:mb-4 text-white">
               WEBORA
             </h2>
@@ -59,7 +70,10 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-brand-text-sec font-semibold text-center sm:text-left">
-          <p>© {currentYear} WEBORA. ALL RIGHTS RESERVED.</p>
+          <div className="flex items-center gap-2">
+            <img src="/logo-icon.png" alt="Webora" className="w-3.5 h-3.5 object-contain opacity-80" />
+            <p>© {currentYear} WEBORA. ALL RIGHTS RESERVED.</p>
+          </div>
           <div className="flex gap-6 sm:gap-8">
             <a href="#" className="hover:text-brand-accent transition-colors">PRIVACY POLICY</a>
             <a href="#" className="hover:text-brand-accent transition-colors">TERMS OF SERVICE</a>
