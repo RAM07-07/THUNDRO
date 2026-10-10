@@ -1,4 +1,5 @@
 import { siteConfig } from '../config';
+import { scrollToSection } from '../utils/scroll';
 
 const currentYear = new Date().getFullYear();
 
@@ -23,7 +24,14 @@ export default function Footer() {
               <ul className="space-y-2.5 sm:space-y-3">
                 {['Home', 'Services', 'Work', 'About', 'Pricing'].map(link => (
                   <li key={link}>
-                    <a href={`#${link.toLowerCase()}`} className="text-xs sm:text-sm uppercase font-bold tracking-wider text-white hover:text-brand-accent transition-colors py-1 inline-block">
+                    <a 
+                      href={`#${link.toLowerCase()}`} 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollToSection(link.toLowerCase());
+                      }}
+                      className="text-xs sm:text-sm uppercase font-bold tracking-wider text-white hover:text-brand-accent transition-colors py-1 inline-block cursor-pointer"
+                    >
                       {link}
                     </a>
                   </li>

@@ -3,11 +3,12 @@ import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-
 import { Menu, X, ArrowUpRight, MessageCircle } from 'lucide-react';
 import { cn } from '../utils/cn';
 import { siteConfig } from '../config';
+import { scrollToSection } from '../utils/scroll';
 
 const navLinks = [
   { name: 'ABOUT', href: '#about' },
   { name: 'SERVICES', href: '#services' },
-  { name: 'PORTFOLIO', href: '#work' },
+  { name: 'PORTFOLIO', href: '#portfolio' },
   { name: 'PROCESS', href: '#process' },
   { name: 'PRICING', href: '#pricing' },
   { name: 'CONTACT', href: '#contact' },
@@ -34,6 +35,17 @@ export default function Navbar() {
     };
   }, [isMobileMenuOpen]);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    document.body.style.overflow = '';
+    
+    // Allow the mobile drawer transition/DOM lock to release before scrolling
+    setTimeout(() => {
+      scrollToSection(href);
+    }, 60);
+  };
+
   return (
     <motion.header
       className={cn(
@@ -46,7 +58,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between">
         <a 
           href="#home" 
-          onClick={() => setIsMobileMenuOpen(false)}
+          onClick={(e) => handleNavClick(e, '#home')}
           className="flex items-center gap-2.5 sm:gap-3 group shrink-0"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-brand-accent group-hover:rotate-90 transition-transform duration-700 ease-out sm:w-6 sm:h-6">
@@ -63,7 +75,8 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-xs font-semibold tracking-widest text-brand-text-sec hover:text-brand-text transition-colors px-3 lg:px-4 py-2 rounded-full hover:bg-white/5"
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="text-xs font-semibold tracking-widest text-brand-text-sec hover:text-brand-text transition-colors px-3 lg:px-4 py-2 rounded-full hover:bg-white/5 cursor-pointer"
               >
                 {link.name}
               </a>
@@ -74,6 +87,11 @@ export default function Navbar() {
             href={siteConfig?.contact?.whatsapp ? `https://wa.me/${siteConfig.contact.whatsapp}` : "#contact"}
             target={siteConfig?.contact?.whatsapp ? "_blank" : "_self"}
             rel="noopener noreferrer"
+            onClick={(e) => {
+              if (!siteConfig?.contact?.whatsapp) {
+                handleNavClick(e, '#contact');
+              }
+            }}
             className="group flex items-center gap-2 px-5 lg:px-6 py-2.5 bg-transparent border border-white/20 hover:border-brand-accent hover:bg-brand-accent/10 hover:shadow-[0_0_25px_rgba(183,255,69,0.35)] rounded-md text-xs font-bold tracking-widest uppercase text-white hover:text-brand-accent transition-all duration-300"
           >
             Let's Talk 
@@ -87,6 +105,11 @@ export default function Navbar() {
             href={siteConfig?.contact?.whatsapp ? `https://wa.me/${siteConfig.contact.whatsapp}` : "#contact"}
             target={siteConfig?.contact?.whatsapp ? "_blank" : "_self"}
             rel="noopener noreferrer"
+            onClick={(e) => {
+              if (!siteConfig?.contact?.whatsapp) {
+                handleNavClick(e, '#contact');
+              }
+            }}
             className="group flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-transparent border border-white/20 hover:border-brand-accent hover:bg-brand-accent/10 rounded-md text-[10px] sm:text-xs font-bold tracking-widest uppercase text-white hover:text-brand-accent transition-all"
           >
             <span>Let's Talk</span>
@@ -117,8 +140,8 @@ export default function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-brand-text hover:text-brand-accent text-sm tracking-widest py-3.5 px-3 rounded-lg hover:bg-white/5 border-b border-white/5 last:border-0 uppercase font-semibold flex items-center justify-between transition-colors min-h-[48px]"
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="text-brand-text hover:text-brand-accent text-sm tracking-widest py-3.5 px-3 rounded-lg hover:bg-white/5 border-b border-white/5 last:border-0 uppercase font-semibold flex items-center justify-between transition-colors min-h-[48px] cursor-pointer"
                 >
                   <span>{link.name}</span>
                   <span className="text-brand-accent/50 text-xs">→</span>

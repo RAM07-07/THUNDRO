@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
+import { scrollToSection } from '../utils/scroll';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-transparent py-16 sm:py-0">
+    <section id="home" className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-transparent py-16 sm:py-0 scroll-mt-20 sm:scroll-mt-24">
       {/* Dark overlay for readability */}
       <div className="absolute inset-0 z-10 bg-[#050706]/40 pointer-events-none mix-blend-multiply" />
       <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#050706]/60 via-transparent to-[#050706]/60 pointer-events-none" />
@@ -56,7 +57,11 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
           href="#contact" 
-          className="mt-8 sm:mt-12 md:mt-16 px-8 py-3.5 sm:px-10 sm:py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-[11px] sm:text-xs font-bold tracking-widest uppercase hover:bg-white/10 hover:border-brand-accent/50 hover:text-brand-accent transition-all duration-300 group shadow-[0_0_20px_rgba(0,0,0,0.5)]"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('contact');
+          }}
+          className="mt-8 sm:mt-12 md:mt-16 px-8 py-3.5 sm:px-10 sm:py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-[11px] sm:text-xs font-bold tracking-widest uppercase hover:bg-white/10 hover:border-brand-accent/50 hover:text-brand-accent transition-all duration-300 group shadow-[0_0_20px_rgba(0,0,0,0.5)] cursor-pointer"
         >
           LET'S TALK
         </motion.a>

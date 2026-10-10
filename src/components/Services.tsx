@@ -163,7 +163,7 @@ function ServiceRow({ service, idx }: { service: any, idx: number }) {
 
 export default function Services() {
   return (
-    <section id="services" className="py-16 sm:py-24 md:py-32 relative overflow-hidden bg-transparent">
+    <section id="services" className="py-16 sm:py-24 md:py-32 relative overflow-hidden bg-transparent scroll-mt-20 sm:scroll-mt-24">
       {/* Background Architectural Lines */}
       <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-10">
         <div className="w-[1px] h-full bg-white" />

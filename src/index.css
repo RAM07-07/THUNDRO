@@ -23,16 +23,18 @@
     scroll-behavior: smooth;
   }
 
-  html, body {
+  body {
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
-  }
-
-  body {
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Ensure fixed navbar never obscures section headings on anchor jump */
+  section[id], [id] {
+    scroll-margin-top: 5.5rem;
   }
 
   /* Prevent iOS Safari auto-zoom on input focus while keeping responsive font sizing */

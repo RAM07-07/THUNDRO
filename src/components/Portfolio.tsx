@@ -141,7 +141,9 @@ export default function Portfolio() {
   );
 
   return (
-    <section id="work" className="py-16 sm:py-24 md:py-32 relative bg-transparent border-t border-white/10">
+    <section id="portfolio" className="py-16 sm:py-24 md:py-32 relative bg-transparent border-t border-white/10 scroll-mt-20 sm:scroll-mt-24">
+      {/* Anchor alias for #work */}
+      <span id="work" className="absolute -top-24 pointer-events-none" />
       {/* Background Architectural Lines */}
       <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-10">
         <div className="w-[1px] h-full bg-white" />

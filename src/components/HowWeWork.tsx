@@ -30,7 +30,9 @@ const steps = [
 
 export default function HowWeWork() {
   return (
-    <section id="process" className="py-16 sm:py-24 relative bg-transparent overflow-hidden border-t border-white/10">
+    <section id="process" className="py-16 sm:py-24 relative bg-transparent overflow-hidden border-t border-white/10 scroll-mt-20 sm:scroll-mt-24">
+      {/* Anchor alias for #how-we-work */}
+      <span id="how-we-work" className="absolute -top-24 pointer-events-none" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 md:mb-20">
           <motion.div
