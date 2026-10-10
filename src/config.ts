@@ -1,0 +1,10 @@
+export const siteConfig = {
+  name: "Webora",
+  tagline: "We Build Your Digital Future.",
+  description: "We design and build modern, fast, responsive websites that help businesses stand out, attract customers, and grow online.",
+  contact: {
+    whatsapp: "919876543210", // REPLACE_WITH_YOUR_NUMBER
+    email: "hello@webora.concept", // REPLACE_WITH_YOUR_EMAIL
+    location: "Coimbatore, Tamil Nadu, India."
+  }
+};

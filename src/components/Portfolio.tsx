@@ -1,0 +1,193 @@
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
+import { ShoppingCart } from 'lucide-react';
+import { siteConfig } from '../config';
+const categories = ['All', 'Business', 'Fitness', 'Travel', 'Restaurant', 'E-commerce'];
+
+const projects = [
+  {
+    id: 1,
+    title: 'FitZone',
+    category: 'Fitness',
+    description: 'Gym and fitness website with membership plans and trainer profiles.',
+    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop',
+    color: 'from-orange-500/20 to-brand-bg',
+    type: 'desktop'
+  },
+  {
+    id: 2,
+    title: 'WanderWay',
+    category: 'Travel',
+    description: 'Travel destinations, tour packages, and enquiry functionality.',
+    image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1421&auto=format&fit=crop',
+    color: 'from-blue-500/20 to-brand-bg',
+    type: 'mobile'
+  },
+  {
+    id: 3,
+    title: 'UrbanBites',
+    category: 'Restaurant',
+    description: 'Premium food photography, menu, and table enquiries.',
+    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1470&auto=format&fit=crop',
+    color: 'from-red-500/20 to-brand-bg',
+    type: 'desktop'
+  },
+  {
+    id: 4,
+    title: 'GlowStudio',
+    category: 'Business',
+    description: 'Elegant beauty aesthetic, service listings, and appointment enquiries.',
+    image: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1469&auto=format&fit=crop',
+    color: 'from-pink-500/20 to-brand-bg',
+    type: 'mobile'
+  },
+  {
+    id: 5,
+    title: 'NovaStore',
+    category: 'E-commerce',
+    description: 'Product catalogue, details, shopping cart, and checkout UI. (Concept)',
+    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1470&auto=format&fit=crop',
+    color: 'from-purple-500/20 to-brand-bg',
+    type: 'desktop'
+  },
+  {
+    id: 6,
+    title: 'EstatePro',
+    category: 'Business',
+    description: 'Property listings, detailed pages, and viewing enquiry forms.',
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1470&auto=format&fit=crop',
+    color: 'from-brand-accent/20 to-brand-bg',
+    type: 'desktop'
+  }
+];
+
+function ProjectRow({ project, idx }: { project: any, idx: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0 1", "0.8 1"]
+  });
+
+  const smoothProgress = useSpring(scrollYProgress, { damping: 20, stiffness: 100 });
+  const yOffset = useTransform(smoothProgress, [0, 1], [100, 0]);
+  const opacity = useTransform(smoothProgress, [0, 1], [0, 1]);
+  const rotateX = useTransform(smoothProgress, [0, 1], [10, 0]);
+  
+  const isEven = idx % 2 === 0;
+
+  return (
+    <motion.div
+      ref={ref}
+      layout
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      style={{ opacity, y: yOffset }}
+      className={`flex flex-col lg:flex-row gap-12 lg:gap-24 items-center mb-32 ${isEven ? '' : 'lg:flex-row-reverse'}`}
+    >
+      <div className="w-full lg:w-5/12 flex flex-col items-start">
+        <div className="text-[10px] font-semibold tracking-[0.2em] text-brand-accent uppercase mb-6 px-3 py-1 rounded-full border border-brand-accent/30 bg-brand-accent/5">
+          {project.category}
+        </div>
+        <h3 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tight mb-6">{project.title}</h3>
+        <p className="text-brand-text-sec text-lg mb-8 leading-relaxed max-w-md">{project.description}</p>
+        
+        <a 
+          href={siteConfig?.contact?.whatsapp ? `https://wa.me/${siteConfig.contact.whatsapp}?text=I%20want%20to%20order%20the%20${project.title}%20website` : "#contact"}
+          target={siteConfig?.contact?.whatsapp ? "_blank" : "_self"}
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-3 px-6 py-3 border border-white/20 bg-white/5 hover:bg-brand-accent hover:border-brand-accent text-white hover:text-black rounded-sm text-xs font-bold tracking-widest uppercase transition-all duration-300 group shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(183,255,69,0.2)]"
+        >
+          CLICK TO ORDER <ShoppingCart size={16} className="group-hover:scale-110 transition-transform" />
+        </a>
+      </div>
+
+      <div className="w-full lg:w-7/12 relative perspective-[1200px]">
+        <motion.div 
+          style={{ rotateX, rotateY: isEven ? -5 : 5 }}
+          className="relative w-full aspect-[4/3] rounded-sm overflow-hidden border border-white/10 group cursor-pointer"
+          whileHover={{ scale: 1.02, rotateX: 0, rotateY: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <div className="absolute inset-0 bg-[#050706]/20 mix-blend-overlay group-hover:bg-transparent transition-colors duration-500 z-10" />
+          
+          {project.type === 'desktop' ? (
+            <div className="absolute inset-x-8 bottom-0 top-12 bg-black rounded-t-xl border-x-4 border-t-4 border-[#222] shadow-2xl overflow-hidden transform translate-y-8 group-hover:translate-y-4 transition-transform duration-700 ease-out">
+              <div className="h-6 w-full bg-[#111] border-b border-[#333] flex items-center px-4 gap-1.5">
+                <div className="w-2 h-2 rounded-full bg-red-500/50" />
+                <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
+                <div className="w-2 h-2 rounded-full bg-green-500/50" />
+              </div>
+              <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" />
+            </div>
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative w-full max-w-[240px] aspect-[9/19] bg-black rounded-[2rem] border-[8px] border-[#222] shadow-2xl overflow-hidden transform group-hover:scale-105 transition-transform duration-700 ease-out">
+                <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" />
+              </div>
+            </div>
+          )}
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+}
+
+export default function Portfolio() {
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const filteredProjects = projects.filter(
+    (project) => activeCategory === 'All' || project.category === activeCategory
+  );
+
+  return (
+    <section id="work" className="py-32 relative bg-transparent border-t border-white/10">
+      {/* Background Architectural Lines */}
+      <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-10">
+        <div className="w-[1px] h-full bg-white" />
+        <div className="w-[1px] h-full bg-white" />
+        <div className="w-[1px] h-full bg-white hidden md:block" />
+        <div className="w-[1px] h-full bg-white" />
+      </div>
+
+      <div className="container mx-auto px-6 lg:px-12 max-w-[1600px] relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
+          <div>
+            <div className="text-[10px] sm:text-xs font-semibold tracking-[0.3em] text-brand-text-sec uppercase mb-8">
+              03 / SELECTED WORK
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.1] uppercase max-w-2xl">
+              DIGITAL WORK THAT<br/>
+              <span className="text-brand-text-sec">SPEAKS FOR ITSELF.</span>
+            </h2>
+          </div>
+          
+          <div className="flex flex-wrap gap-2 md:max-w-md">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-5 py-2 rounded-full text-[10px] font-bold tracking-widest uppercase transition-all ${
+                  activeCategory === category 
+                    ? 'bg-brand-accent text-[#050706]' 
+                    : 'bg-transparent text-brand-text-sec hover:text-white border border-white/10 hover:border-white/30'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <motion.div layout className="flex flex-col">
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, idx) => (
+              <ProjectRow key={project.id} project={project} idx={idx} />
+            ))}
+          </AnimatePresence>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
