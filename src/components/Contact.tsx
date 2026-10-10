@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Loader2, MessageCircle } from 'lucide-react';
+import { Send, Loader2, MessageCircle, ChevronDown } from 'lucide-react';
 import { siteConfig } from '../config';
 
 export default function Contact() {
@@ -32,33 +32,33 @@ export default function Contact() {
     }, 800); 
   };
 
-  const inputClasses = "w-full bg-transparent border-b border-white/20 py-4 text-white text-lg focus:border-brand-accent focus:outline-none transition-colors rounded-none placeholder:text-white/30";
+  const inputClasses = "w-full bg-transparent border-b border-white/20 py-3 sm:py-4 text-white text-base sm:text-lg focus:border-brand-accent focus:outline-none transition-colors rounded-none placeholder:text-white/30";
 
   return (
-    <section id="contact" ref={ref} className="py-32 relative bg-transparent border-t border-white/10">
+    <section id="contact" ref={ref} className="py-16 sm:py-24 md:py-32 relative bg-transparent border-t border-white/10">
       {/* Background Architectural Lines */}
-      <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-10">
+      <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-10">
         <div className="w-[1px] h-full bg-white" />
         <div className="w-[1px] h-full bg-white" />
         <div className="w-[1px] h-full bg-white hidden md:block" />
         <div className="w-[1px] h-full bg-white" />
       </div>
 
-      <div className="container mx-auto px-6 lg:px-12 max-w-[1600px] relative z-10">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-32">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-[1600px] relative z-10">
+        <div className="flex flex-col lg:flex-row gap-10 sm:gap-16 lg:gap-32">
           
           {/* Left Column */}
           <div className="w-full lg:w-5/12">
-            <div className="text-[10px] sm:text-xs font-semibold tracking-[0.3em] text-brand-text-sec uppercase mb-8">
+            <div className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] sm:tracking-[0.3em] text-brand-text-sec uppercase mb-4 sm:mb-8">
               05 / CONTACT
             </div>
             
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-display font-bold leading-[1.1] mb-12 uppercase">
+            <h2 className="text-3xl sm:text-5xl lg:text-7xl font-display font-bold leading-[1.1] mb-6 sm:mb-12 uppercase">
               READY TO START<br/>
               <span className="text-brand-accent drop-shadow-[0_0_20px_rgba(183,255,69,0.2)]">YOUR PROJECT?</span>
             </h2>
             
-            <p className="text-brand-text-sec text-lg mb-16 leading-relaxed max-w-md font-medium">
+            <p className="text-brand-text-sec text-base sm:text-lg mb-8 sm:mb-16 leading-relaxed max-w-md font-medium">
               Tell us about your business and what you want to build. We'll discuss the right approach for your project.
             </p>
           </div>
@@ -71,9 +71,9 @@ export default function Contact() {
               viewport={{ once: true }} 
               transition={{ delay: 0.3 }} 
               onSubmit={handleSubmit} 
-              className="space-y-8"
+              className="space-y-6 sm:space-y-8"
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div>
                   <input required type="text" name="name" value={formData.name} onChange={handleChange} className={inputClasses} placeholder="Full Name *" />
                 </div>
@@ -82,7 +82,7 @@ export default function Contact() {
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div>
                   <input required type="email" name="email" value={formData.email} onChange={handleChange} className={inputClasses} placeholder="Email Address *" />
                 </div>
@@ -91,22 +91,24 @@ export default function Contact() {
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div className="relative">
-                  <select aria-label="Website Type" name="websiteType" value={formData.websiteType} onChange={handleChange} className={`${inputClasses} appearance-none cursor-pointer`}>
+                  <select aria-label="Website Type" name="websiteType" value={formData.websiteType} onChange={handleChange} className={`${inputClasses} appearance-none cursor-pointer pr-8`}>
                     <option className="bg-[#111] text-white">Business Website</option>
                     <option className="bg-[#111] text-white">Landing Page</option>
                     <option className="bg-[#111] text-white">E-commerce</option>
                     <option className="bg-[#111] text-white">Website Redesign</option>
                     <option className="bg-[#111] text-white">Other</option>
                   </select>
+                  <ChevronDown size={18} className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-brand-text-sec" />
                 </div>
                 <div className="relative">
-                  <select aria-label="Budget" name="budget" value={formData.budget} onChange={handleChange} className={`${inputClasses} appearance-none cursor-pointer`}>
+                  <select aria-label="Budget" name="budget" value={formData.budget} onChange={handleChange} className={`${inputClasses} appearance-none cursor-pointer pr-8`}>
                     <option className="bg-[#111] text-white">₹2,999 - ₹5,999</option>
                     <option className="bg-[#111] text-white">₹5,999 - ₹9,999</option>
                     <option className="bg-[#111] text-white">₹10,000+</option>
                   </select>
+                  <ChevronDown size={18} className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-brand-text-sec" />
                 </div>
               </div>
               
@@ -115,26 +117,26 @@ export default function Contact() {
               </div>
               
               {status === 'error' && (
-                <div className="p-6 border border-orange-500/50 bg-orange-500/5 text-orange-200 text-sm mt-8">
+                <div className="p-4 sm:p-6 border border-orange-500/50 bg-orange-500/5 text-orange-200 text-sm mt-6 sm:mt-8 rounded-lg">
                   <p className="mb-4">We are currently updating our backend. Please click below to send your enquiry directly via WhatsApp instead.</p>
-                  <a href={generateWhatsAppLink()} target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 bg-brand-accent text-[#050706] text-xs font-bold tracking-widest uppercase">
+                  <a href={generateWhatsAppLink()} target="_blank" rel="noopener noreferrer" className="inline-block px-6 py-3.5 bg-brand-accent text-[#050706] text-xs font-bold tracking-widest uppercase rounded">
                     SEND ENQUIRY VIA WHATSAPP
                   </a>
                 </div>
               )}
               
               {status === 'success' && (
-                <div className="p-6 border border-[#25D366]/50 bg-[#25D366]/5 text-[#25D366] text-sm mt-8">
+                <div className="p-4 sm:p-6 border border-[#25D366]/50 bg-[#25D366]/5 text-[#25D366] text-sm mt-6 sm:mt-8 rounded-lg">
                   <p>Opening your email client... If it didn't open, you can also use the WhatsApp button below.</p>
                 </div>
               )}
               
               {status !== 'error' && status !== 'success' && (
-                <div className="pt-8 flex flex-col md:flex-row gap-4">
+                <div className="pt-4 sm:pt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
                   <button 
                     type="submit" 
                     disabled={status === 'loading'} 
-                    className="group flex items-center justify-between w-full md:w-auto min-w-[240px] px-8 py-5 border border-white/20 hover:border-brand-accent transition-all duration-300 disabled:opacity-50"
+                    className="group flex items-center justify-between w-full sm:w-auto sm:flex-1 min-w-[200px] px-6 sm:px-8 py-4 sm:py-5 border border-white/20 hover:border-brand-accent transition-all duration-300 disabled:opacity-50 min-h-[52px]"
                   >
                     {status === 'loading' ? (
                       <span className="flex items-center justify-center gap-3 w-full text-xs font-bold tracking-widest uppercase text-white">
@@ -154,7 +156,7 @@ export default function Contact() {
                     href={`https://wa.me/${siteConfig.contact.whatsapp}`} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="group flex items-center justify-between w-full md:w-auto min-w-[240px] px-8 py-5 border border-white/20 hover:border-[#25D366] hover:bg-[#25D366]/10 transition-all duration-300"
+                    className="group flex items-center justify-between w-full sm:w-auto sm:flex-1 min-w-[200px] px-6 sm:px-8 py-4 sm:py-5 border border-white/20 hover:border-[#25D366] hover:bg-[#25D366]/10 transition-all duration-300 min-h-[52px]"
                   >
                     <span className="text-xs font-bold tracking-widest uppercase text-white group-hover:text-[#25D366] transition-colors">
                       MESSAGE ON WHATSAPP

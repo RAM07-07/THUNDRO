@@ -10,11 +10,7 @@ function currentFrame(index: number) {
 }
 
 const renderFrame = (ctx: CanvasRenderingContext2D | null, canvas: HTMLCanvasElement, img: HTMLImageElement) => {
-  if (!ctx || !img) return;
-  
-  // Set canvas dimensions to match window for perfect sharpness
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  if (!ctx || !img || !canvas.width || !canvas.height) return;
 
   // Simulate background-size: cover
   const hRatio = canvas.width / img.width;
@@ -36,7 +32,15 @@ export default function ScrollSequenceBackground() {
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const { scrollYProgress } = useScroll();
 
+  const updateCanvasDimensions = () => {
+    if (!canvasRef.current) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvasRef.current.width = window.innerWidth * dpr;
+    canvasRef.current.height = window.innerHeight * dpr;
+  };
+
   useEffect(() => {
+    updateCanvasDimensions();
     const loadedImages: HTMLImageElement[] = [];
     let loadedCount = 0;
 
@@ -49,6 +53,7 @@ export default function ScrollSequenceBackground() {
           setImages(loadedImages);
           // Draw first frame immediately when all loaded
           if (canvasRef.current) {
+            updateCanvasDimensions();
             const ctx = canvasRef.current.getContext('2d');
             renderFrame(ctx, canvasRef.current, loadedImages[0]);
           }
@@ -73,13 +78,16 @@ export default function ScrollSequenceBackground() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (images.length > 0 && canvasRef.current) {
-        const frameIndex = Math.min(
-          FRAME_COUNT - 1,
-          Math.floor(scrollYProgress.get() * FRAME_COUNT)
-        );
-        const ctx = canvasRef.current.getContext('2d');
-        renderFrame(ctx, canvasRef.current, images[frameIndex]);
+      if (canvasRef.current) {
+        updateCanvasDimensions();
+        if (images.length > 0) {
+          const frameIndex = Math.min(
+            FRAME_COUNT - 1,
+            Math.floor(scrollYProgress.get() * FRAME_COUNT)
+          );
+          const ctx = canvasRef.current.getContext('2d');
+          renderFrame(ctx, canvasRef.current, images[frameIndex]);
+        }
       }
     };
     window.addEventListener('resize', handleResize);

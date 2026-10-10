@@ -2,13 +2,13 @@ import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-transparent">
+    <section id="home" className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-transparent py-16 sm:py-0">
       {/* Dark overlay for readability */}
       <div className="absolute inset-0 z-10 bg-[#050706]/40 pointer-events-none mix-blend-multiply" />
       <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#050706]/60 via-transparent to-[#050706]/60 pointer-events-none" />
 
       {/* Architectural Grid Lines */}
-      <div className="absolute inset-0 z-10 pointer-events-none flex justify-between px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-20">
+      <div className="absolute inset-0 z-10 pointer-events-none flex justify-between px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-20">
         <motion.div initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ duration: 1.5, ease: "circOut" }} className="w-[1px] h-full bg-white origin-top" />
         <motion.div initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ duration: 1.5, delay: 0.1, ease: "circOut" }} className="w-[1px] h-full bg-white origin-top" />
         <motion.div initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ duration: 1.5, delay: 0.2, ease: "circOut" }} className="w-[1px] h-full bg-white origin-top hidden md:block" />
@@ -16,17 +16,17 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-6 relative z-20 flex flex-col items-center text-center mt-12">
+      <div className="container mx-auto px-4 sm:px-6 relative z-20 flex flex-col items-center text-center mt-6 sm:mt-12">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-[10px] sm:text-xs font-semibold tracking-[0.3em] text-brand-text-sec uppercase mb-8"
+          className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] sm:tracking-[0.3em] text-brand-text-sec uppercase mb-4 sm:mb-8"
         >
           DIGITAL DESIGN & DEVELOPMENT
         </motion.div>
         
-        <h1 className="font-display font-bold text-[9vw] leading-[0.85] tracking-tighter uppercase flex flex-col items-center">
+        <h1 className="font-display font-bold text-5xl sm:text-7xl md:text-8xl lg:text-[9vw] leading-[0.92] sm:leading-[0.88] tracking-tighter uppercase flex flex-col items-center">
           <motion.span 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
           href="#contact" 
-          className="mt-16 px-10 py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-xs font-bold tracking-widest uppercase hover:bg-white/10 hover:border-brand-accent/50 hover:text-brand-accent transition-all duration-300 group"
+          className="mt-8 sm:mt-12 md:mt-16 px-8 py-3.5 sm:px-10 sm:py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-[11px] sm:text-xs font-bold tracking-widest uppercase hover:bg-white/10 hover:border-brand-accent/50 hover:text-brand-accent transition-all duration-300 group shadow-[0_0_20px_rgba(0,0,0,0.5)]"
         >
           LET'S TALK
         </motion.a>

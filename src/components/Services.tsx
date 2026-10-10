@@ -127,27 +127,27 @@ function ServiceRow({ service, idx }: { service: any, idx: number }) {
     <motion.div 
       ref={ref} 
       style={{ opacity: smoothProgress, x: useTransform(smoothProgress, [0, 1], [-20, 0]) }} 
-      className="group relative border-b border-white/10 py-10 lg:py-16 flex flex-col md:flex-row md:items-center justify-between gap-6 cursor-pointer"
+      className="group relative border-b border-white/10 py-6 sm:py-10 lg:py-14 flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-6 cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-brand-accent/0 via-brand-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10" />
       
-      <div className="flex items-start md:items-center gap-6 lg:gap-12 relative z-10 w-full md:w-auto">
-        <span className="text-sm md:text-lg font-display text-brand-text-sec group-hover:text-brand-accent transition-colors duration-300 w-8">
+      <div className="flex items-start md:items-center gap-4 sm:gap-6 lg:gap-12 relative z-10 w-full md:w-auto">
+        <span className="text-xs sm:text-base md:text-lg font-display text-brand-accent sm:text-brand-text-sec group-hover:text-brand-accent transition-colors duration-300 w-6 sm:w-8 shrink-0 mt-1 md:mt-0">
           0{idx + 1}
         </span>
-        <h3 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold uppercase tracking-tight group-hover:translate-x-4 transition-transform duration-500 ease-out">
+        <h3 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-display font-bold uppercase tracking-tight break-words group-hover:translate-x-2 sm:group-hover:translate-x-4 transition-transform duration-500 ease-out">
           {service.title}
         </h3>
       </div>
       
-      <div className="flex items-center justify-between w-full md:w-auto gap-12 relative z-10">
-        <p className="text-brand-text-sec text-sm md:text-base max-w-xs md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+      <div className="flex items-center justify-between w-full md:w-auto gap-4 sm:gap-12 relative z-10 pl-10 sm:pl-14 md:pl-0">
+        <p className="text-brand-text-sec text-xs sm:text-sm md:text-base max-w-md md:max-w-xs md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
           {service.description}
         </p>
         
-        <div className="flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-6">
           <div className="w-16 h-16 md:w-24 md:h-24 opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 ease-out absolute right-24 md:static pointer-events-none">
             {isHovered && (
               <Canvas camera={{ position: [0, 0, 3], fov: 50 }}>
@@ -155,7 +155,6 @@ function ServiceRow({ service, idx }: { service: any, idx: number }) {
               </Canvas>
             )}
           </div>
-
         </div>
       </div>
     </motion.div>
@@ -164,22 +163,22 @@ function ServiceRow({ service, idx }: { service: any, idx: number }) {
 
 export default function Services() {
   return (
-    <section id="services" className="py-32 relative overflow-hidden bg-transparent">
+    <section id="services" className="py-16 sm:py-24 md:py-32 relative overflow-hidden bg-transparent">
       {/* Background Architectural Lines */}
-      <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-10">
+      <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-10">
         <div className="w-[1px] h-full bg-white" />
         <div className="w-[1px] h-full bg-white" />
         <div className="w-[1px] h-full bg-white hidden md:block" />
         <div className="w-[1px] h-full bg-white" />
       </div>
 
-      <div className="container mx-auto px-6 lg:px-12 max-w-[1600px] relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-[1600px] relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 md:mb-24 gap-6 sm:gap-8">
           <div>
-            <div className="text-[10px] sm:text-xs font-semibold tracking-[0.3em] text-brand-text-sec uppercase mb-8">
+            <div className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] sm:tracking-[0.3em] text-brand-text-sec uppercase mb-4 sm:mb-8">
               02 / WHAT WE DO
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.1] uppercase max-w-2xl">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.1] uppercase max-w-2xl">
               DESIGNED WITH PURPOSE.<br/>
               <span className="text-brand-text-sec">BUILT TO PERFORM.</span>
             </h2>

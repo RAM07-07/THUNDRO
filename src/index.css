@@ -22,11 +22,29 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
   body {
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
   }
+
+  /* Prevent iOS Safari auto-zoom on input focus while keeping responsive font sizing */
+  input, select, textarea {
+    font-size: 16px;
+  }
+}
+
+@utility no-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

@@ -83,20 +83,20 @@ function ProjectRow({ project, idx }: { project: any, idx: number }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       style={{ opacity, y: yOffset }}
-      className={`flex flex-col lg:flex-row gap-12 lg:gap-24 items-center mb-32 ${isEven ? '' : 'lg:flex-row-reverse'}`}
+      className={`flex flex-col lg:flex-row gap-8 sm:gap-12 lg:gap-24 items-center mb-16 sm:mb-24 lg:mb-32 ${isEven ? '' : 'lg:flex-row-reverse'}`}
     >
       <div className="w-full lg:w-5/12 flex flex-col items-start">
-        <div className="text-[10px] font-semibold tracking-[0.2em] text-brand-accent uppercase mb-6 px-3 py-1 rounded-full border border-brand-accent/30 bg-brand-accent/5">
+        <div className="text-[10px] font-semibold tracking-[0.2em] text-brand-accent uppercase mb-4 sm:mb-6 px-3 py-1 rounded-full border border-brand-accent/30 bg-brand-accent/5">
           {project.category}
         </div>
-        <h3 className="text-4xl md:text-5xl font-display font-bold uppercase tracking-tight mb-6">{project.title}</h3>
-        <p className="text-brand-text-sec text-lg mb-8 leading-relaxed max-w-md">{project.description}</p>
+        <h3 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold uppercase tracking-tight mb-4 sm:mb-6">{project.title}</h3>
+        <p className="text-brand-text-sec text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed max-w-md">{project.description}</p>
         
         <a 
           href={siteConfig?.contact?.whatsapp ? `https://wa.me/${siteConfig.contact.whatsapp}?text=I%20want%20to%20order%20the%20${project.title}%20website` : "#contact"}
           target={siteConfig?.contact?.whatsapp ? "_blank" : "_self"}
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 px-6 py-3 border border-white/20 bg-white/5 hover:bg-brand-accent hover:border-brand-accent text-white hover:text-black rounded-sm text-xs font-bold tracking-widest uppercase transition-all duration-300 group shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(183,255,69,0.2)]"
+          className="inline-flex items-center justify-center gap-3 px-6 py-3.5 border border-white/20 bg-white/5 hover:bg-brand-accent hover:border-brand-accent text-white hover:text-black rounded-sm text-xs font-bold tracking-widest uppercase transition-all duration-300 group shadow-[0_0_15px_rgba(255,255,255,0.05)] hover:shadow-[0_0_20px_rgba(183,255,69,0.2)] w-full sm:w-auto"
         >
           CLICK TO ORDER <ShoppingCart size={16} className="group-hover:scale-110 transition-transform" />
         </a>
@@ -104,7 +104,7 @@ function ProjectRow({ project, idx }: { project: any, idx: number }) {
 
       <div className="w-full lg:w-7/12 relative perspective-[1200px]">
         <motion.div 
-          style={{ rotateX, rotateY: isEven ? -5 : 5 }}
+          style={{ rotateX, rotateY: isEven ? -4 : 4 }}
           className="relative w-full aspect-[4/3] rounded-sm overflow-hidden border border-white/10 group cursor-pointer"
           whileHover={{ scale: 1.02, rotateX: 0, rotateY: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
@@ -112,8 +112,8 @@ function ProjectRow({ project, idx }: { project: any, idx: number }) {
           <div className="absolute inset-0 bg-[#050706]/20 mix-blend-overlay group-hover:bg-transparent transition-colors duration-500 z-10" />
           
           {project.type === 'desktop' ? (
-            <div className="absolute inset-x-8 bottom-0 top-12 bg-black rounded-t-xl border-x-4 border-t-4 border-[#222] shadow-2xl overflow-hidden transform translate-y-8 group-hover:translate-y-4 transition-transform duration-700 ease-out">
-              <div className="h-6 w-full bg-[#111] border-b border-[#333] flex items-center px-4 gap-1.5">
+            <div className="absolute inset-x-3 sm:inset-x-8 bottom-0 top-6 sm:top-12 bg-black rounded-t-xl border-x-2 sm:border-x-4 border-t-2 sm:border-t-4 border-[#222] shadow-2xl overflow-hidden transform translate-y-4 sm:translate-y-8 group-hover:translate-y-2 sm:group-hover:translate-y-4 transition-transform duration-700 ease-out">
+              <div className="h-5 sm:h-6 w-full bg-[#111] border-b border-[#333] flex items-center px-3 sm:px-4 gap-1.5">
                 <div className="w-2 h-2 rounded-full bg-red-500/50" />
                 <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
                 <div className="w-2 h-2 rounded-full bg-green-500/50" />
@@ -121,8 +121,8 @@ function ProjectRow({ project, idx }: { project: any, idx: number }) {
               <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" />
             </div>
           ) : (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative w-full max-w-[240px] aspect-[9/19] bg-black rounded-[2rem] border-[8px] border-[#222] shadow-2xl overflow-hidden transform group-hover:scale-105 transition-transform duration-700 ease-out">
+            <div className="absolute inset-0 flex items-center justify-center p-4">
+              <div className="relative w-full max-w-[170px] sm:max-w-[240px] aspect-[9/19] bg-black rounded-[1.5rem] sm:rounded-[2rem] border-[6px] sm:border-[8px] border-[#222] shadow-2xl overflow-hidden transform group-hover:scale-105 transition-transform duration-700 ease-out">
                 <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" />
               </div>
             </div>
@@ -141,33 +141,33 @@ export default function Portfolio() {
   );
 
   return (
-    <section id="work" className="py-32 relative bg-transparent border-t border-white/10">
+    <section id="work" className="py-16 sm:py-24 md:py-32 relative bg-transparent border-t border-white/10">
       {/* Background Architectural Lines */}
-      <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-10">
+      <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-10">
         <div className="w-[1px] h-full bg-white" />
         <div className="w-[1px] h-full bg-white" />
         <div className="w-[1px] h-full bg-white hidden md:block" />
         <div className="w-[1px] h-full bg-white" />
       </div>
 
-      <div className="container mx-auto px-6 lg:px-12 max-w-[1600px] relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-[1600px] relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 md:mb-24 gap-6 sm:gap-8">
           <div>
-            <div className="text-[10px] sm:text-xs font-semibold tracking-[0.3em] text-brand-text-sec uppercase mb-8">
+            <div className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] sm:tracking-[0.3em] text-brand-text-sec uppercase mb-4 sm:mb-8">
               03 / SELECTED WORK
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.1] uppercase max-w-2xl">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.1] uppercase max-w-2xl">
               DIGITAL WORK THAT<br/>
               <span className="text-brand-text-sec">SPEAKS FOR ITSELF.</span>
             </h2>
           </div>
           
-          <div className="flex flex-wrap gap-2 md:max-w-md">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:overflow-visible no-scrollbar">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-5 py-2 rounded-full text-[10px] font-bold tracking-widest uppercase transition-all ${
+                className={`px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[10px] font-bold tracking-widest uppercase transition-all whitespace-nowrap shrink-0 ${
                   activeCategory === category 
                     ? 'bg-brand-accent text-[#050706]' 
                     : 'bg-transparent text-brand-text-sec hover:text-white border border-white/10 hover:border-white/30'
