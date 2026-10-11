@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollSequenceBackground from './components/ScrollSequenceBackground';
+import ScrollStars from './components/3d/ScrollStars';
 
 function App() {
   return (
@@ -10,9 +11,10 @@ function App() {
       <div className="min-h-screen text-brand-text flex flex-col font-sans relative">
         <div className="fixed inset-0 z-[-1] pointer-events-none bg-[#050706]">
           <ScrollSequenceBackground />
+          <ScrollStars />
           {/* Black fade overlay over the background */}
-          <div className="absolute inset-0 bg-black/60 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90" />
+          <div className="absolute inset-0 bg-black/40 mix-blend-multiply pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 pointer-events-none" />
         </div>
         <div className="relative z-0">
           <Navbar />
