@@ -22,8 +22,8 @@ export default function Contact() {
 
   const generateWhatsAppLink = () => {
     const details = formData.name 
-      ? `Hi Webora, I'd like to discuss a project.\n\n👤 Name: ${formData.name}\n🏢 Business: ${formData.businessName || 'N/A'}\n📱 WhatsApp: ${formData.whatsapp || 'N/A'}\n✉️ Email: ${formData.email || 'N/A'}\n💻 Type: ${formData.websiteType}\n💰 Budget: ${formData.budget}\n📝 Details: ${formData.description || 'N/A'}`
-      : "Hi Webora, I'm interested in starting a project and would like to get a quote.";
+      ? `Hi THUNDRO, I'd like to discuss a project.\n\n👤 Name: ${formData.name}\n🏢 Business: ${formData.businessName || 'N/A'}\n📱 WhatsApp: ${formData.whatsapp || 'N/A'}\n✉️ Email: ${formData.email || 'N/A'}\n💻 Type: ${formData.websiteType}\n💰 Budget: ${formData.budget}\n📝 Details: ${formData.description || 'N/A'}`
+      : "Hi THUNDRO, I'm interested in starting a project and would like to get a quote.";
     return `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(details)}`;
   };
 

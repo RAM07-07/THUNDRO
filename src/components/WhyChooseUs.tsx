@@ -41,7 +41,7 @@ export default function WhyChooseUs() {
               viewport={{ once: true }}
               className="text-3xl sm:text-4xl font-bold leading-tight mb-4 sm:mb-6"
             >
-              Why Partner With <span className="text-brand-accent">Webora?</span>
+              Why Partner With <span className="text-brand-accent">THUNDRO?</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -50,7 +50,7 @@ export default function WhyChooseUs() {
               transition={{ delay: 0.2 }}
               className="text-brand-text-sec text-base sm:text-lg leading-relaxed"
             >
-              At Webora, we go beyond generic templates to create custom websites tailored to your brand and business goals. We combine modern design, seamless functionality, and performance-focused development to deliver digital experiences that capture attention and turn visitors into customers. More than just a web development studio, we’re your dedicated partner in building a stronger online presence and growing your business.
+              At THUNDRO, we go beyond generic templates to create custom websites tailored to your brand and business goals. We combine modern design, seamless functionality, and performance-focused development to deliver digital experiences that capture attention and turn visitors into customers. More than just a web development studio, we’re your dedicated partner in building a stronger online presence and growing your business.
             </motion.p>
           </div>
           

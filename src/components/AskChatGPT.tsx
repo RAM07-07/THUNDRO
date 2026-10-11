@@ -20,7 +20,7 @@ export default function AskChatGPT() {
             {/* Left Content */}
             <div className="w-full lg:w-3/5 text-center sm:text-left">
               <h2 className="text-2xl sm:text-4xl lg:text-5xl font-display font-bold mb-4 sm:mb-6 leading-tight">
-                Can't decide if <span className="text-brand-accent">Webora</span>{' '}
+                Can't decide if <span className="text-brand-accent">THUNDRO</span>{' '}
                 <br className="hidden sm:inline" />
                 is right for your business?
               </h2>
@@ -29,7 +29,7 @@ export default function AskChatGPT() {
               </p>
               
               <a 
-                href="https://chatgpt.com/?q=Why+should+I+choose+Webora+web+development+agency+for+my+premium+business+website%3F" 
+                href="https://chatgpt.com/?q=Why+should+I+choose+THUNDRO+web+development+agency+for+my+premium+business+website%3F" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-between sm:justify-start bg-white text-black pl-5 pr-2 py-2 sm:pl-6 rounded-sm font-bold tracking-widest text-xs sm:text-sm hover:bg-white/90 transition-all group/btn w-full sm:w-auto shadow-lg"

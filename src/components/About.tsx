@@ -31,7 +31,7 @@ export default function About() {
             </h2>
             
             <p className="text-brand-text-sec text-base sm:text-lg mb-6 sm:mb-12 leading-relaxed max-w-lg font-medium">
-              At Webora, we build your digital future. We are a web design and development studio focused on creating modern, responsive websites for businesses, brands, and ambitious ideas.
+              At THUNDRO, we build your digital future. We are a web design and development studio focused on creating modern, responsive websites for businesses, brands, and ambitious ideas.
             </p>
           </motion.div>
 
@@ -43,7 +43,7 @@ export default function About() {
                 
                 <img 
                   src="/about_agency_workspace.jpg" 
-                  alt="Webora Design Agency Workspace" 
+                  alt="THUNDRO Design Agency Workspace" 
                   className="w-full h-full object-cover object-center filter saturate-[0.8] contrast-125 group-hover:scale-105 transition-transform duration-[2s] ease-out"
                 />
                 
