@@ -64,7 +64,7 @@ export default function Navbar() {
           <img 
             src="/logo.png" 
             alt="THUNDRO" 
-            className="h-8 sm:h-9 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+            className="h-10 sm:h-11 md:h-12 lg:h-[52px] w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
           />
         </a>
 
@@ -140,7 +140,7 @@ export default function Navbar() {
                 <img 
                   src="/logo.png" 
                   alt="THUNDRO" 
-                  className="h-7 w-auto object-contain" 
+                  className="h-8 sm:h-9 w-auto object-contain" 
                 />
                 <span className="text-[10px] font-mono tracking-widest text-brand-accent uppercase">Brand Studio</span>
               </div>
