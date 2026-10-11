@@ -84,7 +84,7 @@ export default function Contact() {
                 <div className="flex flex-col min-w-0">
                   <span className="text-[10px] font-semibold text-brand-text-sec uppercase tracking-wider">WhatsApp Us</span>
                   <span className="text-xs sm:text-sm font-bold text-white group-hover:text-[#25D366] transition-colors truncate">
-                    +{siteConfig.contact.whatsapp}
+                    +91 86675 36503
                   </span>
                 </div>
               </a>
@@ -197,7 +197,7 @@ export default function Contact() {
                       name="whatsapp" 
                       value={formData.whatsapp} 
                       onChange={handleChange} 
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 86675 36503"
                       className="w-full bg-[#050706] border border-white/15 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/40 text-white text-base rounded-xl px-4 py-3 sm:py-3.5 transition-all outline-none placeholder:text-white/20"
                     />
                   </div>
@@ -270,7 +270,7 @@ export default function Contact() {
                         </>
                       ) : (
                         <>
-                          <span>SEND MESSAGE</span>
+                          <span>SEND MAIL</span>
                           <Send size={15} />
                         </>
                       )}

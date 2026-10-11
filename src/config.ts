@@ -3,8 +3,8 @@ export const siteConfig = {
   tagline: "We Build Your Digital Future.",
   description: "We design and build modern, fast, responsive websites that help businesses stand out, attract customers, and grow online.",
   contact: {
-    whatsapp: "919876543210", // REPLACE_WITH_YOUR_NUMBER
-    email: "hello@thundro.concept", // REPLACE_WITH_YOUR_EMAIL
+    whatsapp: "918667536503",
+    email: "thundro.web@gmail.com",
     location: "Coimbatore, Tamil Nadu, India."
   }
 };
