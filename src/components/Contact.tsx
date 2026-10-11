@@ -9,7 +9,7 @@ export default function Contact() {
     const plan = urlParams.get('plan');
     return { 
       name: '', businessName: '', email: '', whatsapp: '', 
-      websiteType: 'Business Website', budget: '₹2,999 - ₹5,999', 
+      websiteType: 'Business Website', 
       description: plan ? `I am interested in the ${plan} plan.` : '' 
     };
   });
@@ -22,7 +22,7 @@ export default function Contact() {
 
   const generateWhatsAppLink = () => {
     const details = formData.name 
-      ? `Hi THUNDRO, I'd like to discuss a project.\n\n👤 Name: ${formData.name}\n🏢 Business: ${formData.businessName || 'N/A'}\n📱 WhatsApp: ${formData.whatsapp || 'N/A'}\n✉️ Email: ${formData.email || 'N/A'}\n💻 Type: ${formData.websiteType}\n💰 Budget: ${formData.budget}\n📝 Details: ${formData.description || 'N/A'}`
+      ? `Hi THUNDRO, I'd like to discuss a project.\n\n👤 Name: ${formData.name}\n🏢 Business: ${formData.businessName || 'N/A'}\n📱 WhatsApp: ${formData.whatsapp || 'N/A'}\n✉️ Email: ${formData.email || 'N/A'}\n💻 Type: ${formData.websiteType}\n📝 Details: ${formData.description || 'N/A'}`
       : "Hi THUNDRO, I'm interested in starting a project and would like to get a quote.";
     return `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(details)}`;
   };
@@ -32,7 +32,7 @@ export default function Contact() {
     setStatus('loading'); 
     
     const subject = encodeURIComponent(`New Project Enquiry from ${formData.name}`);
-    const body = encodeURIComponent(`Name: ${formData.name}\nBusiness: ${formData.businessName}\nWhatsApp: ${formData.whatsapp}\nEmail: ${formData.email}\n\nType: ${formData.websiteType}\nBudget: ${formData.budget}\n\nDetails:\n${formData.description}`);
+    const body = encodeURIComponent(`Name: ${formData.name}\nBusiness: ${formData.businessName}\nWhatsApp: ${formData.whatsapp}\nEmail: ${formData.email}\n\nType: ${formData.websiteType}\n\nDetails:\n${formData.description}`);
     
     setTimeout(() => { 
       window.location.href = `mailto:${siteConfig.contact.email}?subject=${subject}&body=${body}`;
@@ -203,47 +203,25 @@ export default function Contact() {
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-                  <div>
-                    <label className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
-                      Website Type
-                    </label>
-                    <div className="relative">
-                      <select 
-                        aria-label="Website Type" 
-                        name="websiteType" 
-                        value={formData.websiteType} 
-                        onChange={handleChange} 
-                        className="w-full bg-[#050706] border border-white/15 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/40 text-white text-base rounded-xl px-4 py-3 sm:py-3.5 pr-10 appearance-none cursor-pointer outline-none transition-all"
-                      >
-                        <option className="bg-[#111] text-white">Business Website</option>
-                        <option className="bg-[#111] text-white">Landing Page</option>
-                        <option className="bg-[#111] text-white">E-commerce</option>
-                        <option className="bg-[#111] text-white">Website Redesign</option>
-                        <option className="bg-[#111] text-white">Other</option>
-                      </select>
-                      <ChevronDown size={18} className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-brand-text-sec" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
-                      Budget Estimate
-                    </label>
-                    <div className="relative">
-                      <select 
-                        aria-label="Budget" 
-                        name="budget" 
-                        value={formData.budget} 
-                        onChange={handleChange} 
-                        className="w-full bg-[#050706] border border-white/15 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/40 text-white text-base rounded-xl px-4 py-3 sm:py-3.5 pr-10 appearance-none cursor-pointer outline-none transition-all"
-                      >
-                        <option className="bg-[#111] text-white">₹2,999 - ₹5,999</option>
-                        <option className="bg-[#111] text-white">₹5,999 - ₹9,999</option>
-                        <option className="bg-[#111] text-white">₹10,000+</option>
-                      </select>
-                      <ChevronDown size={18} className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-brand-text-sec" />
-                    </div>
+                <div>
+                  <label className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
+                    Website Type
+                  </label>
+                  <div className="relative">
+                    <select 
+                      aria-label="Website Type" 
+                      name="websiteType" 
+                      value={formData.websiteType} 
+                      onChange={handleChange} 
+                      className="w-full bg-[#050706] border border-white/15 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/40 text-white text-base rounded-xl px-4 py-3 sm:py-3.5 pr-10 appearance-none cursor-pointer outline-none transition-all"
+                    >
+                      <option className="bg-[#111] text-white">Business Website</option>
+                      <option className="bg-[#111] text-white">Landing Page</option>
+                      <option className="bg-[#111] text-white">E-commerce</option>
+                      <option className="bg-[#111] text-white">Website Redesign</option>
+                      <option className="bg-[#111] text-white">Other</option>
+                    </select>
+                    <ChevronDown size={18} className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-brand-text-sec" />
                   </div>
                 </div>
                 
