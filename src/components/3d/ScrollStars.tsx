@@ -10,11 +10,11 @@ function createStarTexture(): THREE.Texture {
 
   if (ctx) {
     const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32);
-    // Pure white center, bright halo, transitioning to soft transparent glow
-    gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
-    gradient.addColorStop(0.15, 'rgba(255, 255, 255, 0.9)');
-    gradient.addColorStop(0.4, 'rgba(215, 255, 160, 0.45)');
-    gradient.addColorStop(0.7, 'rgba(183, 255, 69, 0.15)');
+    // Soft transparent starlight glow
+    gradient.addColorStop(0, 'rgba(255, 255, 255, 0.85)');
+    gradient.addColorStop(0.18, 'rgba(255, 255, 255, 0.65)');
+    gradient.addColorStop(0.45, 'rgba(215, 255, 160, 0.28)');
+    gradient.addColorStop(0.75, 'rgba(183, 255, 69, 0.08)');
     gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
 
     ctx.fillStyle = gradient;
@@ -59,7 +59,7 @@ export default function ScrollStars() {
     container.appendChild(renderer.domElement);
 
     // --- Stars System ---
-    const STAR_COUNT = 1800;
+    const STAR_COUNT = 650;
     const starGeometry = new THREE.BufferGeometry();
     const positions = new Float32Array(STAR_COUNT * 3);
     const colors = new Float32Array(STAR_COUNT * 3);
@@ -98,13 +98,13 @@ export default function ScrollStars() {
     const starTexture = createStarTexture();
 
     const starMaterial = new THREE.PointsMaterial({
-      size: 1.35,
+      size: 1.1,
       vertexColors: true,
       map: starTexture,
       transparent: true,
       blending: THREE.AdditiveBlending,
       depthWrite: false,
-      opacity: 0.9
+      opacity: 0.52
     });
 
     const starField = new THREE.Points(starGeometry, starMaterial);
@@ -221,8 +221,8 @@ export default function ScrollStars() {
       const posArray = posAttr.array as Float32Array;
 
       // Warp stretch: scale points slightly when scrolling fast
-      const warpFactor = Math.min(2.2, 1 + Math.abs(scrollVelocity) * 0.12);
-      starMaterial.size = 1.35 * warpFactor;
+      const warpFactor = Math.min(1.8, 1 + Math.abs(scrollVelocity) * 0.08);
+      starMaterial.size = 1.1 * warpFactor;
 
       const Z_FAR = -120;
       const Z_NEAR = 12;
@@ -252,7 +252,7 @@ export default function ScrollStars() {
         nextMeteorTimer -= dt;
         if (nextMeteorTimer <= 0) {
           spawnMeteor();
-          nextMeteorTimer = 4.0 + Math.random() * 5.0;
+          nextMeteorTimer = 5.0 + Math.random() * 6.0;
         }
       } else {
         meteorLife -= dt * 1.2;
@@ -260,7 +260,7 @@ export default function ScrollStars() {
           meteorActive = false;
           meteorMat.opacity = 0;
         } else {
-          meteorMat.opacity = Math.max(0, meteorLife * 0.95);
+          meteorMat.opacity = Math.max(0, meteorLife * 0.55);
           meteorPos.addScaledVector(meteorDir, meteorSpeed);
 
           const mPosAttr = meteorGeom.attributes.position as THREE.BufferAttribute;
