@@ -12,9 +12,10 @@ function App() {
         <div className="fixed inset-0 z-[-1] pointer-events-none bg-[#050706]">
           <ScrollSequenceBackground />
           <ScrollStars />
-          {/* Black fade overlay over the background */}
-          <div className="absolute inset-0 bg-black/40 mix-blend-multiply pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80 pointer-events-none" />
+          {/* Black fade screen in front of the stars across all pages */}
+          <div className="absolute inset-0 z-[2] bg-[#050706]/60 mix-blend-multiply pointer-events-none" />
+          <div className="absolute inset-0 z-[3] bg-gradient-to-b from-[#050706]/90 via-[#050706]/40 to-[#050706]/90 pointer-events-none" />
+          <div className="absolute inset-0 z-[4] bg-[radial-gradient(ellipse_at_center,transparent_20%,#050706_90%)] pointer-events-none opacity-80" />
         </div>
         <div className="relative z-0">
           <Navbar />

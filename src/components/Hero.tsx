@@ -4,10 +4,6 @@ import { scrollToSection } from '../utils/scroll';
 export default function Hero() {
   return (
     <section id="home" className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden bg-transparent py-16 sm:py-0 scroll-mt-20 sm:scroll-mt-24">
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 z-10 bg-[#050706]/40 pointer-events-none mix-blend-multiply" />
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#050706]/60 via-transparent to-[#050706]/60 pointer-events-none" />
-
       {/* Architectural Grid Lines */}
       <div className="absolute inset-0 z-10 pointer-events-none flex justify-between px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-20">
         <motion.div initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} transition={{ duration: 1.5, ease: "circOut" }} className="w-[1px] h-full bg-white origin-top" />
