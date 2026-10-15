@@ -10,21 +10,21 @@ export default function AskChatGPT() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative w-full border border-white/20 bg-black/40 backdrop-blur-xl overflow-hidden group rounded-xl sm:rounded-none"
+          className="relative w-full border border-black/10 bg-white/90 backdrop-blur-xl overflow-hidden group rounded-2xl shadow-xl"
         >
           {/* Subtle Grid Background */}
-          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-20" />
+          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-60" />
           
           <div className="flex flex-col lg:flex-row items-center justify-between relative z-10 p-6 sm:p-10 lg:p-16 gap-8 lg:gap-12">
             
             {/* Left Content */}
             <div className="w-full lg:w-3/5 text-center sm:text-left">
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-display font-bold mb-4 sm:mb-6 leading-tight">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-display font-bold mb-4 sm:mb-6 leading-tight text-brand-text">
                 Can't decide if <span className="text-brand-accent">THUNDRO</span>{' '}
                 <br className="hidden sm:inline" />
                 is right for your business?
               </h2>
-              <p className="text-brand-text-sec text-base sm:text-lg mb-8 sm:mb-10 max-w-xl leading-relaxed mx-auto sm:mx-0">
+              <p className="text-brand-text-sec text-base sm:text-lg mb-8 sm:mb-10 max-w-xl leading-relaxed mx-auto sm:mx-0 font-normal">
                 You don't have to figure it out alone. Let ChatGPT walk you through exactly why businesses choose us for their premium web experiences.
               </p>
               
@@ -32,10 +32,10 @@ export default function AskChatGPT() {
                 href="https://chatgpt.com/?q=Why+should+I+choose+THUNDRO+web+development+agency+for+my+premium+business+website%3F" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-between sm:justify-start bg-white text-black pl-5 pr-2 py-2 sm:pl-6 rounded-sm font-bold tracking-widest text-xs sm:text-sm hover:bg-white/90 transition-all group/btn w-full sm:w-auto shadow-lg"
+                className="inline-flex items-center justify-between sm:justify-start bg-brand-text text-white pl-5 pr-2 py-2 sm:pl-6 rounded-full font-bold tracking-widest text-xs sm:text-sm hover:bg-brand-accent transition-all group/btn w-full sm:w-auto shadow-md hover:shadow-xl"
               >
                 <span>ASK CHATGPT</span>
-                <span className="ml-4 sm:ml-6 bg-brand-accent/20 text-[#25D366] p-2 rounded-sm group-hover/btn:bg-brand-accent group-hover/btn:text-black transition-colors shrink-0">
+                <span className="ml-4 sm:ml-6 bg-white/20 text-white p-2 rounded-full group-hover/btn:bg-white group-hover/btn:text-black transition-colors shrink-0">
                   <ArrowRight size={18} />
                 </span>
               </a>
@@ -55,10 +55,10 @@ export default function AskChatGPT() {
                     repeat: Infinity,
                     ease: "linear"
                   }}
-                  className="relative z-10 w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 bg-[#050706] border border-white/20 rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(183,255,69,0.15)] group-hover:border-brand-accent/50 transition-colors duration-500"
+                  className="relative z-10 w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40 bg-white border border-black/10 rounded-2xl flex items-center justify-center shadow-xl group-hover:border-brand-accent/50 transition-colors duration-500"
                 >
                   <Bot size={48} className="text-brand-accent sm:w-16 sm:h-16" />
-                  <Sparkles size={20} className="text-white absolute -top-3 -right-3 sm:-top-4 sm:-right-4 animate-pulse" />
+                  <Sparkles size={20} className="text-brand-sec absolute -top-3 -right-3 sm:-top-4 sm:-right-4 animate-pulse" />
                   <Sparkles size={14} className="text-brand-accent absolute -bottom-2 -left-3 sm:-bottom-2 sm:-left-4 animate-bounce" />
                 </motion.div>
                 
@@ -66,19 +66,19 @@ export default function AskChatGPT() {
                 <motion.div 
                   animate={{ y: [-6, 6, -6] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-0 right-0 sm:right-2 bg-[#050706] border border-white/20 p-2.5 sm:p-3 rounded-lg shadow-lg"
+                  className="absolute top-0 right-0 sm:right-2 bg-white border border-black/10 p-2.5 sm:p-3 rounded-lg shadow-md"
                 >
-                  <div className="w-10 sm:w-12 h-1.5 sm:h-2 bg-white/20 rounded-full mb-1.5 sm:mb-2" />
+                  <div className="w-10 sm:w-12 h-1.5 sm:h-2 bg-black/10 rounded-full mb-1.5 sm:mb-2" />
                   <div className="w-6 sm:w-8 h-1.5 sm:h-2 bg-brand-accent/40 rounded-full" />
                 </motion.div>
                 
                 <motion.div 
                   animate={{ y: [6, -6, 6] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute bottom-2 left-0 sm:left-2 bg-brand-accent border border-brand-accent p-2.5 sm:p-3 rounded-lg shadow-lg"
+                  className="absolute bottom-2 left-0 sm:left-2 bg-brand-accent border border-brand-accent p-2.5 sm:p-3 rounded-lg shadow-md"
                 >
-                  <div className="w-8 sm:w-10 h-1.5 sm:h-2 bg-black/40 rounded-full mb-1.5 sm:mb-2" />
-                  <div className="w-5 sm:w-6 h-1.5 sm:h-2 bg-black/20 rounded-full" />
+                  <div className="w-8 sm:w-10 h-1.5 sm:h-2 bg-white/70 rounded-full mb-1.5 sm:mb-2" />
+                  <div className="w-5 sm:w-6 h-1.5 sm:h-2 bg-white/40 rounded-full" />
                 </motion.div>
               </div>
             </div>

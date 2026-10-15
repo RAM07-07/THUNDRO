@@ -41,7 +41,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-16 sm:py-24 relative bg-transparent border-t border-white/10 scroll-mt-20 sm:scroll-mt-24">
+    <section id="faq" className="py-16 sm:py-24 relative bg-transparent border-t border-black/10 scroll-mt-20 sm:scroll-mt-24">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10 sm:mb-16">
@@ -49,7 +49,7 @@ export default function FAQ() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6"
+              className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6 text-brand-text"
             >
               Frequently Asked <span className="text-brand-accent">Questions.</span>
             </motion.h2>
@@ -63,7 +63,7 @@ export default function FAQ() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className="border border-brand-border/30 rounded-xl sm:rounded-2xl bg-brand-bg overflow-hidden"
+                className="border border-black/10 rounded-xl sm:rounded-2xl bg-white shadow-sm overflow-hidden"
               >
                 <button
                   className="w-full px-4 py-4 sm:px-6 sm:py-5 flex items-center justify-between text-left focus:outline-none min-h-[52px] sm:min-h-[60px]"
@@ -71,8 +71,8 @@ export default function FAQ() {
                   aria-expanded={openIndex === idx}
                   aria-controls={`faq-answer-${idx}`}
                 >
-                  <span className="font-semibold text-sm sm:text-base pr-3 sm:pr-4 leading-snug">{faq.question}</span>
-                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${openIndex === idx ? 'bg-brand-accent text-brand-bg' : 'bg-brand-bg-sec text-brand-text-sec'}`}>
+                  <span className="font-semibold text-sm sm:text-base pr-3 sm:pr-4 leading-snug text-brand-text">{faq.question}</span>
+                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${openIndex === idx ? 'bg-brand-accent text-white' : 'bg-brand-bg-sec text-brand-text-sec'}`}>
                     {openIndex === idx ? <Minus size={15} /> : <Plus size={15} />}
                   </div>
                 </button>
@@ -88,7 +88,7 @@ export default function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                      <div className="px-4 pb-4 sm:px-6 sm:pb-6 text-xs sm:text-sm md:text-base text-brand-text-sec leading-relaxed">
+                      <div className="px-4 pb-4 sm:px-6 sm:pb-6 text-xs sm:text-sm md:text-base text-brand-text-sec leading-relaxed font-normal">
                         {faq.answer}
                       </div>
                     </motion.div>

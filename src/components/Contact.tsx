@@ -42,13 +42,13 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" ref={ref} className="py-16 sm:py-24 md:py-32 relative bg-transparent border-t border-white/10 scroll-mt-20 sm:scroll-mt-24">
+    <section id="contact" ref={ref} className="py-16 sm:py-24 md:py-32 relative bg-transparent border-t border-black/10 scroll-mt-20 sm:scroll-mt-24">
       {/* Background Architectural Lines */}
-      <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-10">
-        <div className="w-[1px] h-full bg-white" />
-        <div className="w-[1px] h-full bg-white" />
-        <div className="w-[1px] h-full bg-white hidden md:block" />
-        <div className="w-[1px] h-full bg-white" />
+      <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-5">
+        <div className="w-[1px] h-full bg-black" />
+        <div className="w-[1px] h-full bg-black" />
+        <div className="w-[1px] h-full bg-black hidden md:block" />
+        <div className="w-[1px] h-full bg-black" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-[1600px] relative z-10">
@@ -56,17 +56,17 @@ export default function Contact() {
           
           {/* Left Column: Context, Heading, and Quick Contacts */}
           <div className="w-full lg:w-5/12 flex flex-col">
-            <div className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-semibold tracking-[0.25em] text-brand-text-sec uppercase mb-4 sm:mb-6">
+            <div className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold tracking-[0.25em] text-brand-accent uppercase mb-4 sm:mb-6 font-mono">
               <span className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
               05 / GET IN TOUCH
             </div>
             
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-bold leading-[1.1] mb-4 sm:mb-6 uppercase">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-bold leading-[1.1] mb-4 sm:mb-6 uppercase text-brand-text">
               READY TO START<br/>
-              <span className="text-brand-accent drop-shadow-[0_0_25px_rgba(183,255,69,0.25)]">YOUR PROJECT?</span>
+              <span className="text-brand-accent">YOUR PROJECT?</span>
             </h2>
             
-            <p className="text-brand-text-sec text-sm sm:text-base mb-8 sm:mb-10 leading-relaxed font-medium">
+            <p className="text-brand-text-sec text-sm sm:text-base mb-8 sm:mb-10 leading-relaxed font-normal">
               Tell us about your business vision. We'll consult with you, discuss strategies, and provide an accurate quote for your project.
             </p>
 
@@ -76,14 +76,14 @@ export default function Contact() {
                 href={generateWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3.5 p-3.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-[#25D366]/40 hover:bg-[#25D366]/5 transition-all group"
+                className="flex items-center gap-3.5 p-3.5 rounded-xl bg-white border border-black/10 hover:border-[#25D366]/60 hover:bg-[#25D366]/5 transition-all group shadow-sm hover:shadow-md"
               >
-                <div className="w-10 h-10 rounded-lg bg-[#25D366]/10 border border-[#25D366]/20 flex items-center justify-center text-[#25D366] group-hover:scale-110 transition-transform shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-[#25D366]/15 border border-[#25D366]/30 flex items-center justify-center text-[#16A34A] group-hover:scale-110 transition-transform shrink-0">
                   <MessageCircle size={20} />
                 </div>
                 <div className="flex flex-col min-w-0">
-                  <span className="text-[10px] font-semibold text-brand-text-sec uppercase tracking-wider">WhatsApp Us</span>
-                  <span className="text-xs sm:text-sm font-bold text-white group-hover:text-[#25D366] transition-colors truncate">
+                  <span className="text-[10px] font-bold text-brand-text-sec uppercase tracking-wider font-mono">WhatsApp Us</span>
+                  <span className="text-xs sm:text-sm font-bold text-brand-text group-hover:text-[#16A34A] transition-colors truncate">
                     +91 86675 36503
                   </span>
                 </div>
@@ -91,32 +91,32 @@ export default function Contact() {
 
               <a 
                 href={`mailto:${siteConfig.contact.email}`}
-                className="flex items-center gap-3.5 p-3.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-brand-accent/40 hover:bg-brand-accent/5 transition-all group"
+                className="flex items-center gap-3.5 p-3.5 rounded-xl bg-white border border-black/10 hover:border-brand-accent/60 hover:bg-brand-accent/5 transition-all group shadow-sm hover:shadow-md"
               >
-                <div className="w-10 h-10 rounded-lg bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center text-brand-accent group-hover:scale-110 transition-transform shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-brand-accent/15 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:scale-110 transition-transform shrink-0">
                   <Mail size={18} />
                 </div>
                 <div className="flex flex-col min-w-0">
-                  <span className="text-[10px] font-semibold text-brand-text-sec uppercase tracking-wider">Email Us</span>
-                  <span className="text-xs sm:text-sm font-bold text-white group-hover:text-brand-accent transition-colors truncate">
+                  <span className="text-[10px] font-bold text-brand-text-sec uppercase tracking-wider font-mono">Email Us</span>
+                  <span className="text-xs sm:text-sm font-bold text-brand-text group-hover:text-brand-accent transition-colors truncate">
                     {siteConfig.contact.email}
                   </span>
                 </div>
               </a>
 
-              <div className="flex items-center gap-3.5 p-3.5 rounded-xl bg-white/[0.02] border border-white/5 text-brand-text-sec">
-                <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-brand-text-sec shrink-0">
+              <div className="flex items-center gap-3.5 p-3.5 rounded-xl bg-white border border-black/10 text-brand-text-sec shadow-sm">
+                <div className="w-10 h-10 rounded-lg bg-black/5 flex items-center justify-center text-brand-text-sec shrink-0">
                   <MapPin size={18} />
                 </div>
                 <div className="flex flex-col min-w-0">
-                  <span className="text-[10px] font-semibold text-brand-text-sec uppercase tracking-wider">Location</span>
-                  <span className="text-xs sm:text-sm font-medium text-brand-text truncate">
+                  <span className="text-[10px] font-bold text-brand-text-sec uppercase tracking-wider font-mono">Location</span>
+                  <span className="text-xs sm:text-sm font-semibold text-brand-text truncate">
                     {siteConfig.contact.location}
                   </span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 pt-1 text-[11px] font-semibold text-brand-accent/90">
+              <div className="flex items-center gap-2 pt-1 text-[11px] font-semibold text-brand-accent">
                 <Zap size={14} className="text-brand-accent animate-pulse shrink-0" />
                 <span>Quick Response: We typically reply within 1–2 hours.</span>
               </div>
@@ -130,19 +130,19 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true }} 
               transition={{ delay: 0.2 }}
-              className="p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-[#080B09]/80 border border-white/10 backdrop-blur-xl shadow-2xl relative overflow-hidden"
+              className="p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-white border border-black/10 shadow-xl relative overflow-hidden"
             >
               {/* Subtle accent glow */}
               <div className="absolute top-0 right-0 w-48 h-48 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none" />
 
-              <h3 className="text-lg sm:text-xl font-display font-bold uppercase tracking-wider mb-6 flex items-center gap-2 text-white">
+              <h3 className="text-lg sm:text-xl font-display font-bold uppercase tracking-wider mb-6 flex items-center gap-2 text-brand-text">
                 <span>Send a Project Enquiry</span>
               </h3>
 
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 relative z-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   <div>
-                    <label htmlFor="contact-name" className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
+                    <label htmlFor="contact-name" className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5 font-mono">
                       Full Name <span className="text-brand-accent">*</span>
                     </label>
                     <input 
@@ -153,12 +153,12 @@ export default function Contact() {
                       value={formData.name} 
                       onChange={handleChange} 
                       placeholder="e.g. John Doe"
-                      className="w-full bg-[#050706] border border-white/15 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/40 text-white text-base rounded-xl px-4 py-3 sm:py-3.5 transition-all outline-none placeholder:text-white/20"
+                      className="w-full bg-brand-bg-sec border border-black/15 focus:border-brand-accent focus:bg-white focus:ring-1 focus:ring-brand-accent/30 text-brand-text text-base rounded-xl px-4 py-3 sm:py-3.5 transition-all outline-none placeholder:text-gray-400"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="contact-business" className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
+                    <label htmlFor="contact-business" className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5 font-mono">
                       Business Name
                     </label>
                     <input 
@@ -168,14 +168,14 @@ export default function Contact() {
                       value={formData.businessName} 
                       onChange={handleChange} 
                       placeholder="e.g. Acme Studio"
-                      className="w-full bg-[#050706] border border-white/15 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/40 text-white text-base rounded-xl px-4 py-3 sm:py-3.5 transition-all outline-none placeholder:text-white/20"
+                      className="w-full bg-brand-bg-sec border border-black/15 focus:border-brand-accent focus:bg-white focus:ring-1 focus:ring-brand-accent/30 text-brand-text text-base rounded-xl px-4 py-3 sm:py-3.5 transition-all outline-none placeholder:text-gray-400"
                     />
                   </div>
                 </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   <div>
-                    <label htmlFor="contact-email" className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
+                    <label htmlFor="contact-email" className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5 font-mono">
                       Email Address <span className="text-brand-accent">*</span>
                     </label>
                     <input 
@@ -186,12 +186,12 @@ export default function Contact() {
                       value={formData.email} 
                       onChange={handleChange} 
                       placeholder="name@company.com"
-                      className="w-full bg-[#050706] border border-white/15 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/40 text-white text-base rounded-xl px-4 py-3 sm:py-3.5 transition-all outline-none placeholder:text-white/20"
+                      className="w-full bg-brand-bg-sec border border-black/15 focus:border-brand-accent focus:bg-white focus:ring-1 focus:ring-brand-accent/30 text-brand-text text-base rounded-xl px-4 py-3 sm:py-3.5 transition-all outline-none placeholder:text-gray-400"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="contact-whatsapp" className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
+                    <label htmlFor="contact-whatsapp" className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5 font-mono">
                       WhatsApp Number <span className="text-brand-accent">*</span>
                     </label>
                     <input 
@@ -202,13 +202,13 @@ export default function Contact() {
                       value={formData.whatsapp} 
                       onChange={handleChange} 
                       placeholder="+91 86675 36503"
-                      className="w-full bg-[#050706] border border-white/15 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/40 text-white text-base rounded-xl px-4 py-3 sm:py-3.5 transition-all outline-none placeholder:text-white/20"
+                      className="w-full bg-brand-bg-sec border border-black/15 focus:border-brand-accent focus:bg-white focus:ring-1 focus:ring-brand-accent/30 text-brand-text text-base rounded-xl px-4 py-3 sm:py-3.5 transition-all outline-none placeholder:text-gray-400"
                     />
                   </div>
                 </div>
                 
                 <div>
-                  <label htmlFor="contact-website-type" className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
+                  <label htmlFor="contact-website-type" className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5 font-mono">
                     Website Type
                   </label>
                   <div className="relative">
@@ -218,20 +218,20 @@ export default function Contact() {
                       name="websiteType" 
                       value={formData.websiteType} 
                       onChange={handleChange} 
-                      className="w-full bg-[#050706] border border-white/15 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/40 text-white text-base rounded-xl px-4 py-3 sm:py-3.5 pr-10 appearance-none cursor-pointer outline-none transition-all"
+                      className="w-full bg-brand-bg-sec border border-black/15 focus:border-brand-accent focus:bg-white focus:ring-1 focus:ring-brand-accent/30 text-brand-text text-base rounded-xl px-4 py-3 sm:py-3.5 pr-10 appearance-none cursor-pointer outline-none transition-all"
                     >
-                      <option className="bg-[#111] text-white">Business Website</option>
-                      <option className="bg-[#111] text-white">Landing Page</option>
-                      <option className="bg-[#111] text-white">E-commerce</option>
-                      <option className="bg-[#111] text-white">Website Redesign</option>
-                      <option className="bg-[#111] text-white">Other</option>
+                      <option className="bg-white text-black">Business Website</option>
+                      <option className="bg-white text-black">Landing Page</option>
+                      <option className="bg-white text-black">E-commerce</option>
+                      <option className="bg-white text-black">Website Redesign</option>
+                      <option className="bg-white text-black">Other</option>
                     </select>
                     <ChevronDown size={18} className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-brand-text-sec" />
                   </div>
                 </div>
                 
                 <div>
-                  <label htmlFor="contact-description" className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
+                  <label htmlFor="contact-description" className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5 font-mono">
                     Project Details
                   </label>
                   <textarea 
@@ -241,21 +241,21 @@ export default function Contact() {
                     onChange={handleChange} 
                     rows={3} 
                     placeholder="Tell us briefly about your goals, features you need, or reference links..."
-                    className="w-full bg-[#050706] border border-white/15 focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/40 text-white text-base rounded-xl p-4 transition-all outline-none resize-none placeholder:text-white/20"
+                    className="w-full bg-brand-bg-sec border border-black/15 focus:border-brand-accent focus:bg-white focus:ring-1 focus:ring-brand-accent/30 text-brand-text text-base rounded-xl p-4 transition-all outline-none resize-none placeholder:text-gray-400"
                   />
                 </div>
                 
                 {status === 'error' && (
-                  <div className="p-4 border border-orange-500/40 bg-orange-500/10 text-orange-200 text-xs sm:text-sm rounded-xl">
+                  <div className="p-4 border border-orange-500/40 bg-orange-500/10 text-orange-800 text-xs sm:text-sm rounded-xl">
                     <p className="mb-3">Email service is busy. Please click below to send your enquiry directly via WhatsApp instead.</p>
-                    <a href={generateWhatsAppLink()} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-accent text-[#050706] text-xs font-bold tracking-wider uppercase rounded-lg">
+                    <a href={generateWhatsAppLink()} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-accent text-white text-xs font-bold tracking-wider uppercase rounded-lg shadow-sm">
                       <MessageCircle size={15} /> Send via WhatsApp
                     </a>
                   </div>
                 )}
                 
                 {status === 'success' && (
-                  <div className="p-4 border border-[#25D366]/40 bg-[#25D366]/10 text-[#25D366] text-xs sm:text-sm rounded-xl flex items-center gap-3">
+                  <div className="p-4 border border-[#25D366]/40 bg-[#25D366]/10 text-[#16A34A] text-xs sm:text-sm rounded-xl flex items-center gap-3">
                     <CheckCircle2 size={20} className="shrink-0" />
                     <p>Opening your email client... If it doesn't launch, you can also send directly via WhatsApp.</p>
                   </div>
@@ -267,7 +267,7 @@ export default function Contact() {
                     <button 
                       type="submit" 
                       disabled={status === 'loading'} 
-                      className="flex items-center justify-center gap-2.5 w-full sm:flex-1 py-3.5 px-6 rounded-xl bg-brand-accent text-[#050706] hover:bg-brand-accent/90 transition-all font-bold text-xs sm:text-sm tracking-wider uppercase shadow-[0_0_25px_rgba(183,255,69,0.25)] active:scale-[0.99] disabled:opacity-50 min-h-[50px]"
+                      className="flex items-center justify-center gap-2.5 w-full sm:flex-1 py-3.5 px-6 rounded-xl bg-brand-text text-white hover:bg-brand-accent transition-all font-bold text-xs sm:text-sm tracking-wider uppercase shadow-md hover:shadow-xl active:scale-[0.99] disabled:opacity-50 min-h-[50px] cursor-pointer"
                     >
                       {status === 'loading' ? (
                         <>
@@ -287,7 +287,7 @@ export default function Contact() {
                       href={generateWhatsAppLink()} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="flex items-center justify-center gap-2.5 w-full sm:flex-1 py-3.5 px-6 rounded-xl bg-[#25D366]/10 border border-[#25D366]/30 text-[#25D366] hover:bg-[#25D366] hover:text-black transition-all font-bold text-xs sm:text-sm tracking-wider uppercase shadow-[0_0_20px_rgba(37,211,102,0.15)] active:scale-[0.99] min-h-[50px]"
+                      className="flex items-center justify-center gap-2.5 w-full sm:flex-1 py-3.5 px-6 rounded-xl bg-[#25D366]/10 border border-[#25D366]/30 text-[#16A34A] hover:bg-[#25D366] hover:text-white transition-all font-bold text-xs sm:text-sm tracking-wider uppercase shadow-sm hover:shadow-md active:scale-[0.99] min-h-[50px]"
                     >
                       <MessageCircle size={17} />
                       <span>CHAT ON WHATSAPP</span>

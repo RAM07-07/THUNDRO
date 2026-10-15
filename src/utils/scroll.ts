@@ -2,7 +2,7 @@ export function scrollToSection(targetIdOrHref: string) {
   // Immediately unlock body scroll in case mobile menu locked it
   document.body.style.overflow = '';
 
-  const cleanId = targetIdOrHref.replace('#', '').toLowerCase();
+  const cleanId = targetIdOrHref.replace(/^#/, '').toLowerCase();
 
   // Find target element by exact ID or common aliases
   const targetElement = 
@@ -27,5 +27,7 @@ export function scrollToSection(targetIdOrHref: string) {
     if (window.history && window.history.pushState) {
       window.history.pushState(null, '', `#${cleanId}`);
     }
+  } else if (window.location.pathname !== '/') {
+    window.location.href = `/#${cleanId}`;
   }
 }
