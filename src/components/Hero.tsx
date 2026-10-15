@@ -18,12 +18,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] sm:tracking-[0.3em] text-brand-text-sec uppercase mb-4 sm:mb-8"
+          className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] sm:tracking-[0.3em] text-brand-accent uppercase mb-4 sm:mb-8 font-mono"
         >
-          DIGITAL DESIGN & DEVELOPMENT
+          THUNDRO • WEBSITE DESIGN &amp; DEVELOPMENT STUDIO
         </motion.div>
         
         <h1 className="font-display font-bold text-5xl sm:text-7xl md:text-8xl lg:text-[9vw] leading-[0.92] sm:leading-[0.88] tracking-tighter uppercase flex flex-col items-center">
+          <span className="sr-only">Thundro — Modern Website Design &amp; Web Development for Businesses: </span>
           <motion.span 
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -54,7 +55,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-6 sm:mt-8 max-w-2xl text-xs sm:text-base text-brand-text-sec font-normal leading-relaxed px-4"
         >
-          We design and develop modern, responsive websites for businesses, gyms, salons, travel agencies, and creative brands across Tamil Nadu and India.
+          We design and build modern, responsive business websites, landing pages, and web experiences for gyms, salons, travel agencies, and growing enterprises in Coimbatore, Tamil Nadu, and across India.
         </motion.p>
         
         <motion.a 
