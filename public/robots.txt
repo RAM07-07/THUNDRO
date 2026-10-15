@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://thundro.concept/sitemap.xml
+
+Sitemap: https://thundro.vercel.app/sitemap.xml
