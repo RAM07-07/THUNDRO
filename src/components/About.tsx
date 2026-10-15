@@ -30,9 +30,14 @@ export default function About() {
               WE TURN IDEAS INTO <span className="text-brand-accent">DIGITAL EXPERIENCES.</span>
             </h2>
             
-            <p className="text-brand-text-sec text-base sm:text-lg mb-6 sm:mb-12 leading-relaxed max-w-lg font-medium">
-              At THUNDRO, we build your digital future. We are a web design and development studio focused on creating modern, responsive websites for businesses, brands, and ambitious ideas.
-            </p>
+            <div className="space-y-4 text-brand-text-sec text-sm sm:text-base leading-relaxed max-w-lg font-normal mb-8 sm:mb-12">
+              <p>
+                Based in <strong className="text-white font-medium">Coimbatore, Tamil Nadu</strong>, <strong className="text-white font-medium">THUNDRO</strong> is an independent web design and development studio. We build modern, mobile-first websites tailored for small businesses, gyms, salons, travel planners, and growing brands across India.
+              </p>
+              <p>
+                From fast-loading marketing landing pages to full multi-page business websites and booking workflows, we combine clean design with modern web technologies like React, Next.js, and interactive 3D elements to help your business turn visitors into clients.
+              </p>
+            </div>
           </motion.div>
 
           <div className="w-full lg:w-1/2 relative h-[280px] sm:h-[400px] md:h-[500px] lg:h-[650px] overflow-hidden rounded-2xl group flex items-center justify-center">

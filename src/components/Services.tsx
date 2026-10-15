@@ -5,12 +5,12 @@ import { motion, useScroll, useTransform, useSpring, MotionValue } from 'framer-
 import * as THREE from 'three';
 
 const services = [
-  { id: 'business', title: 'Business Websites', description: 'Professional multi-page websites for businesses.', shape: 'browser' },
-  { id: 'landing', title: 'Landing Pages', description: 'Conversion-focused pages for campaigns, products, and services.', shape: 'layers' },
-  { id: 'ecommerce', title: 'E-commerce Websites', description: 'Product catalogues, shopping experiences, and online store integrations.', shape: 'bag' },
-  { id: 'booking', title: 'Booking Systems', description: 'Enquiry forms, appointment requests, and booking integrations.', shape: 'clock' },
-  { id: 'redesign', title: 'Website Redesign', description: 'Transform outdated websites into modern digital experiences.', shape: 'transform' },
-  { id: 'maintenance', title: 'Website Maintenance', description: 'Content updates, bug fixes, performance improvements, and ongoing support.', shape: 'shield' }
+  { id: 'business', title: 'Business Websites', description: 'Custom multi-page responsive websites tailored for small businesses, gyms, salons, and agencies.', shape: 'browser' },
+  { id: 'landing', title: 'Landing Pages', description: 'High-converting single-page websites engineered for marketing campaigns, lead generation, and product launches.', shape: 'layers' },
+  { id: 'ecommerce', title: 'E-commerce Websites', description: 'Digital storefronts with product catalogues, shopping carts, and secure payment gateway integrations.', shape: 'bag' },
+  { id: 'booking', title: 'Booking Systems', description: 'Appointment scheduling, booking workflows, and customer enquiry forms for service businesses.', shape: 'clock' },
+  { id: 'redesign', title: 'Website Redesign', description: 'Transforming legacy or slow websites into modern, mobile-first digital experiences with improved conversion.', shape: 'transform' },
+  { id: 'maintenance', title: 'Website Maintenance', description: 'Ongoing website updates, bug fixes, performance monitoring, and security enhancements.', shape: 'shield' }
 ];
 
 function InnerIcon3D({ type, progress }: { type: string, progress: MotionValue<number> }) {

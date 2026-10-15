@@ -17,9 +17,12 @@ export default function Pricing() {
         <div className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] sm:tracking-[0.3em] text-brand-text-sec uppercase mb-4 sm:mb-8">
           04 / INVESTMENT
         </div>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.1] uppercase mb-8 sm:mb-12">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.1] uppercase mb-4 sm:mb-6">
           FOR PRICING DETAILS<br/><span className="text-brand-accent">CONTACT US</span>
         </h2>
+        <p className="text-brand-text-sec text-sm sm:text-base max-w-lg mb-8 sm:mb-10 leading-relaxed font-normal">
+          Every website is tailored to your business goals, design scope, and technical requirements. We offer transparent, upfront estimates with no hidden fees and clear milestone-based delivery.
+        </p>
         <a 
           href="#contact" 
           onClick={(e) => {
