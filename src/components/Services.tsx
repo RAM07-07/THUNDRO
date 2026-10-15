@@ -102,24 +102,24 @@ function InnerIcon3D({ type, progress }: { type: string, progress: MotionValue<n
 
   return (
     <>
-      <ambientLight intensity={0.8} />
-      <directionalLight position={[2, 2, 2]} intensity={1.5} color="#16A34A" />
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[2, 2, 2]} intensity={1} color="#B7FF45" />
       <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
         {type === 'browser' && (
           <mesh ref={mesh1}>
             <boxGeometry args={[1.5, 1, 0.2]} />
-            <meshStandardMaterial color="#16A34A" roughness={0.2} metalness={0.6} />
+            <meshStandardMaterial color="#55E878" roughness={0.2} metalness={0.8} />
           </mesh>
         )}
         {type === 'layers' && (
           <group ref={group1}>
             <mesh ref={mesh1} position-y={0.2} position-z={0.2}>
               <planeGeometry args={[1.2, 0.8]} />
-              <meshStandardMaterial color="#15803D" roughness={0.1} />
+              <meshStandardMaterial color="#B7FF45" roughness={0.1} />
             </mesh>
             <mesh ref={mesh2} position-y={-0.2} position-z={-0.2}>
               <planeGeometry args={[1.2, 0.8]} />
-              <meshStandardMaterial color="#22C55E" roughness={0.5} />
+              <meshStandardMaterial color="#55E878" roughness={0.5} />
             </mesh>
           </group>
         )}
@@ -127,12 +127,12 @@ function InnerIcon3D({ type, progress }: { type: string, progress: MotionValue<n
           <group ref={group1}>
             <mesh>
               <torusGeometry args={[0.4, 0.15, 16, 32]} />
-              <MeshDistortMaterial color="#15803D" distort={0.2} speed={2} />
+              <MeshDistortMaterial color="#B7FF45" distort={0.2} speed={2} />
             </mesh>
             <group ref={orbitGroup}>
               <mesh position={[0.8, 0, 0]}>
                 <boxGeometry args={[0.2, 0.2, 0.2]} />
-                <meshStandardMaterial color="#16A34A" />
+                <meshStandardMaterial color="#55E878" />
               </mesh>
             </group>
           </group>
@@ -140,19 +140,19 @@ function InnerIcon3D({ type, progress }: { type: string, progress: MotionValue<n
         {type === 'clock' && (
           <mesh ref={mesh1}>
             <cylinderGeometry args={[0.6, 0.6, 0.1, 32]} />
-            <meshStandardMaterial color="#16A34A" metalness={0.6} roughness={0.2} />
+            <meshStandardMaterial color="#55E878" metalness={0.8} roughness={0.2} />
           </mesh>
         )}
         {type === 'transform' && (
           <mesh ref={mesh1}>
             <octahedronGeometry args={[0.7]} />
-            <MeshTransmissionMaterial color="#15803D" transmission={0.8} thickness={0.5} />
+            <MeshTransmissionMaterial color="#B7FF45" transmission={0.9} thickness={0.5} />
           </mesh>
         )}
         {type === 'shield' && (
           <mesh ref={mesh1}>
             <coneGeometry args={[0.6, 1, 4]} />
-            <meshStandardMaterial color="#16A34A" metalness={0.5} roughness={0.2} />
+            <meshStandardMaterial color="#55E878" metalness={0.5} roughness={0.2} />
           </mesh>
         )}
       </Float>
@@ -179,7 +179,7 @@ function ServiceRow({ service, idx }: { service: any, idx: number }) {
     <motion.div 
       ref={ref} 
       style={{ opacity: smoothProgress, x: useTransform(smoothProgress, [0, 1], [-20, 0]) }} 
-      className="group relative border-b border-black/10 py-6 sm:py-10 lg:py-14 flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-6 cursor-pointer hover:bg-black/[0.015] transition-colors"
+      className="group relative border-b border-white/10 py-6 sm:py-10 lg:py-14 flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-6 cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleClick}
@@ -195,17 +195,17 @@ function ServiceRow({ service, idx }: { service: any, idx: number }) {
       <div className="absolute inset-0 bg-gradient-to-r from-brand-accent/0 via-brand-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none -z-10" />
       
       <div className="flex items-start md:items-center gap-4 sm:gap-6 lg:gap-12 relative z-10 w-full md:w-auto">
-        <span className="text-xs sm:text-base md:text-lg font-display text-brand-accent sm:text-brand-text-sec group-hover:text-brand-accent transition-colors duration-300 w-6 sm:w-8 shrink-0 mt-1 md:mt-0 font-mono font-bold">
+        <span className="text-xs sm:text-base md:text-lg font-display text-brand-accent sm:text-brand-text-sec group-hover:text-brand-accent transition-colors duration-300 w-6 sm:w-8 shrink-0 mt-1 md:mt-0 font-mono">
           0{idx + 1}
         </span>
-        <h3 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-display font-bold uppercase tracking-tight break-words text-brand-text group-hover:translate-x-2 sm:group-hover:translate-x-4 transition-transform duration-500 ease-out flex items-center gap-3">
+        <h3 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-display font-bold uppercase tracking-tight break-words group-hover:translate-x-2 sm:group-hover:translate-x-4 transition-transform duration-500 ease-out flex items-center gap-3">
           <span>{service.title}</span>
           <ArrowUpRight size={22} className="opacity-0 group-hover:opacity-100 text-brand-accent transition-all duration-300 hidden sm:inline-block" />
         </h3>
       </div>
       
       <div className="flex items-center justify-between w-full md:w-auto gap-4 sm:gap-12 relative z-10 pl-10 sm:pl-14 md:pl-0">
-        <p className="text-brand-text-sec text-xs sm:text-sm md:text-base max-w-md md:max-w-xs md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 font-medium">
+        <p className="text-brand-text-sec text-xs sm:text-sm md:text-base max-w-md md:max-w-xs md:opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
           {service.description}
         </p>
         
@@ -227,27 +227,27 @@ export default function Services() {
   return (
     <section id="services" className="py-16 sm:py-24 md:py-32 relative overflow-hidden bg-transparent scroll-mt-20 sm:scroll-mt-24">
       {/* Background Architectural Lines */}
-      <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-5">
-        <div className="w-[1px] h-full bg-black" />
-        <div className="w-[1px] h-full bg-black" />
-        <div className="w-[1px] h-full bg-black hidden md:block" />
-        <div className="w-[1px] h-full bg-black" />
+      <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-10">
+        <div className="w-[1px] h-full bg-white" />
+        <div className="w-[1px] h-full bg-white" />
+        <div className="w-[1px] h-full bg-white hidden md:block" />
+        <div className="w-[1px] h-full bg-white" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-[1600px] relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 md:mb-24 gap-6 sm:gap-8">
           <div>
-            <div className="text-[10px] sm:text-xs font-bold tracking-[0.25em] sm:tracking-[0.3em] text-brand-accent uppercase mb-4 sm:mb-8 font-mono">
+            <div className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] sm:tracking-[0.3em] text-brand-text-sec uppercase mb-4 sm:mb-8 font-mono">
               02 / WHAT WE DO
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.1] uppercase max-w-2xl text-brand-text">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.1] uppercase max-w-2xl">
               DESIGNED WITH PURPOSE.<br/>
               <span className="text-brand-text-sec">BUILT TO PERFORM.</span>
             </h2>
           </div>
         </div>
         
-        <div className="flex flex-col border-t border-black/10 mb-12 sm:mb-16">
+        <div className="flex flex-col border-t border-white/10 mb-12 sm:mb-16">
           {services.map((service, idx) => (
             <ServiceRow key={service.id} service={service} idx={idx} />
           ))}
@@ -257,14 +257,14 @@ export default function Services() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           <Link
             to="/services/business-websites"
-            className="p-6 rounded-2xl bg-white border border-black/10 hover:border-brand-accent/50 transition-all group flex flex-col justify-between shadow-sm hover:shadow-md"
+            className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-brand-accent/50 transition-all group flex flex-col justify-between"
           >
             <div>
-              <span className="text-[10px] font-mono text-brand-accent uppercase tracking-widest block mb-2 font-bold">Dedicated Service</span>
-              <h3 className="text-lg font-display font-bold text-brand-text uppercase group-hover:text-brand-accent transition-colors mb-2">
+              <span className="text-[10px] font-mono text-brand-accent uppercase tracking-widest block mb-2">Dedicated Service</span>
+              <h3 className="text-lg font-display font-bold text-white uppercase group-hover:text-brand-accent transition-colors mb-2">
                 Business Website Development
               </h3>
-              <p className="text-xs text-brand-text-sec leading-relaxed font-normal">
+              <p className="text-xs text-brand-text-sec leading-relaxed">
                 Custom multi-page responsive websites tailored for professional businesses and service providers.
               </p>
             </div>
@@ -275,14 +275,14 @@ export default function Services() {
 
           <Link
             to="/services/gym-fitness-websites"
-            className="p-6 rounded-2xl bg-white border border-black/10 hover:border-brand-accent/50 transition-all group flex flex-col justify-between shadow-sm hover:shadow-md"
+            className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-brand-accent/50 transition-all group flex flex-col justify-between"
           >
             <div>
-              <span className="text-[10px] font-mono text-brand-accent uppercase tracking-widest block mb-2 font-bold">Specialized Vertical</span>
-              <h3 className="text-lg font-display font-bold text-brand-text uppercase group-hover:text-brand-accent transition-colors mb-2">
+              <span className="text-[10px] font-mono text-brand-accent uppercase tracking-widest block mb-2">Specialized Vertical</span>
+              <h3 className="text-lg font-display font-bold text-white uppercase group-hover:text-brand-accent transition-colors mb-2">
                 Gym &amp; Fitness Website Design
               </h3>
-              <p className="text-xs text-brand-text-sec leading-relaxed font-normal">
+              <p className="text-xs text-brand-text-sec leading-relaxed">
                 High-energy websites featuring membership pricing tables, trainer showcases, and class schedules.
               </p>
             </div>
@@ -293,14 +293,14 @@ export default function Services() {
 
           <Link
             to="/services/small-business-websites"
-            className="p-6 rounded-2xl bg-white border border-black/10 hover:border-brand-accent/50 transition-all group flex flex-col justify-between shadow-sm hover:shadow-md"
+            className="p-6 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-brand-accent/50 transition-all group flex flex-col justify-between"
           >
             <div>
-              <span className="text-[10px] font-mono text-brand-accent uppercase tracking-widest block mb-2 font-bold">Local &amp; Small Business</span>
-              <h3 className="text-lg font-display font-bold text-brand-text uppercase group-hover:text-brand-accent transition-colors mb-2">
+              <span className="text-[10px] font-mono text-brand-accent uppercase tracking-widest block mb-2">Local &amp; Small Business</span>
+              <h3 className="text-lg font-display font-bold text-white uppercase group-hover:text-brand-accent transition-colors mb-2">
                 Small Business Websites
               </h3>
-              <p className="text-xs text-brand-text-sec leading-relaxed font-normal">
+              <p className="text-xs text-brand-text-sec leading-relaxed">
                 Fast-loading, mobile-friendly websites with transparent pricing and direct WhatsApp customer contact.
               </p>
             </div>

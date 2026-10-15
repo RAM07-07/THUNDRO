@@ -26,6 +26,7 @@ export default function Navbar() {
     setIsScrolled(latest > 50);
   });
 
+  // Prevent background scrolling when mobile drawer is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -61,7 +62,7 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled 
-          ? "bg-white/90 backdrop-blur-xl border-b border-black/5 py-3 sm:py-4 shadow-sm shadow-black/5" 
+          ? "bg-[#050706]/95 backdrop-blur-xl border-b border-brand-border py-3 sm:py-4 shadow-lg shadow-black/40" 
           : "bg-transparent py-4 sm:py-6 md:py-8"
       )}
     >
@@ -78,9 +79,9 @@ export default function Navbar() {
           aria-label="Thundro Homepage"
         >
           <img 
-            src="/logo-dark.png" 
+            src="/logo.png" 
             alt="Thundro — Web Design & Development Agency" 
-            className="h-9 sm:h-10 md:h-11 lg:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+            className="h-10 sm:h-11 md:h-12 lg:h-[52px] w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
           />
         </Link>
 
@@ -92,7 +93,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href, link.isRoute)}
-                className="text-xs font-semibold tracking-widest text-brand-text-sec hover:text-brand-text transition-colors px-3 lg:px-4 py-2 rounded-full hover:bg-black/5 cursor-pointer"
+                className="text-xs font-semibold tracking-widest text-brand-text-sec hover:text-brand-text transition-colors px-3 lg:px-4 py-2 rounded-full hover:bg-white/5 cursor-pointer"
               >
                 {link.name}
               </a>
@@ -108,10 +109,10 @@ export default function Navbar() {
                 handleNavClick(e, '#contact');
               }
             }}
-            className="group flex items-center gap-2 px-5 lg:px-6 py-2.5 bg-brand-text hover:bg-brand-accent text-white hover:shadow-[0_4px_20px_rgba(21,128,61,0.25)] rounded-md text-xs font-bold tracking-widest uppercase transition-all duration-300"
+            className="group flex items-center gap-2 px-5 lg:px-6 py-2.5 bg-transparent border border-white/20 hover:border-brand-accent hover:bg-brand-accent/10 hover:shadow-[0_0_25px_rgba(183,255,69,0.35)] rounded-md text-xs font-bold tracking-widest uppercase text-white hover:text-brand-accent transition-all duration-300"
           >
-            <span>Let's Talk</span> 
-            <ArrowUpRight size={16} className="text-brand-sec group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+            Let's Talk 
+            <ArrowUpRight size={16} className="text-brand-accent group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
           </a>
         </div>
 
@@ -126,14 +127,14 @@ export default function Navbar() {
                 handleNavClick(e, '#contact');
               }
             }}
-            className="group flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-brand-text hover:bg-brand-accent rounded-md text-[10px] sm:text-xs font-bold tracking-widest uppercase text-white transition-all"
+            className="group flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 bg-transparent border border-white/20 hover:border-brand-accent hover:bg-brand-accent/10 rounded-md text-[10px] sm:text-xs font-bold tracking-widest uppercase text-white hover:text-brand-accent transition-all"
           >
             <span>Let's Talk</span>
-            <ArrowUpRight size={13} className="text-brand-sec group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            <ArrowUpRight size={13} className="text-brand-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </a>
           <button
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
-            className="text-brand-text p-2 rounded-lg bg-black/5 border border-black/10 hover:bg-black/10 transition-colors flex items-center justify-center min-w-[40px] min-h-[40px]"
+            className="text-brand-text p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors flex items-center justify-center min-w-[40px] min-h-[40px]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -149,23 +150,23 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden overflow-hidden bg-white/98 backdrop-blur-2xl border-b border-black/10 shadow-xl"
+            className="md:hidden overflow-hidden bg-[#050706]/98 backdrop-blur-2xl border-b border-brand-border shadow-2xl"
           >
             <div className="container mx-auto px-5 py-6 flex flex-col gap-1 max-h-[calc(100vh-80px)] overflow-y-auto">
-              <div className="flex items-center justify-between pb-4 mb-2 border-b border-black/10">
+              <div className="flex items-center justify-between pb-4 mb-2 border-b border-white/10">
                 <img 
-                  src="/logo-dark.png" 
+                  src="/logo.png" 
                   alt="Thundro Web Studio" 
-                  className="h-7 sm:h-8 w-auto object-contain" 
+                  className="h-8 sm:h-9 w-auto object-contain" 
                 />
-                <span className="text-[10px] font-mono tracking-widest text-brand-accent uppercase font-bold">Web Agency</span>
+                <span className="text-[10px] font-mono tracking-widest text-brand-accent uppercase">Web Agency</span>
               </div>
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href, link.isRoute)}
-                  className="text-brand-text hover:text-brand-accent text-sm tracking-widest py-3 px-3 rounded-lg hover:bg-black/5 border-b border-black/5 last:border-0 uppercase font-semibold flex items-center justify-between transition-colors min-h-[44px] cursor-pointer"
+                  className="text-brand-text hover:text-brand-accent text-sm tracking-widest py-3 px-3 rounded-lg hover:bg-white/5 border-b border-white/5 last:border-0 uppercase font-semibold flex items-center justify-between transition-colors min-h-[44px] cursor-pointer"
                 >
                   <span>{link.name}</span>
                   <span className="text-brand-accent/50 text-xs">→</span>
@@ -173,40 +174,40 @@ export default function Navbar() {
               ))}
 
               {/* Service Subpages in Mobile Menu */}
-              <div className="pt-3 pb-1 border-t border-black/10">
-                <span className="text-[10px] font-mono uppercase tracking-widest text-brand-text-sec px-3 block mb-2 font-semibold">
+              <div className="pt-3 pb-1 border-t border-white/10">
+                <span className="text-[10px] font-mono uppercase tracking-widest text-brand-text-sec px-3 block mb-2">
                   Specialized Solutions
                 </span>
                 <Link
                   to="/services/business-websites"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-xs text-brand-text-sec hover:text-brand-accent py-2 px-3 block rounded hover:bg-black/5 font-medium"
+                  className="text-xs text-brand-text-sec hover:text-brand-accent py-2 px-3 block rounded hover:bg-white/5"
                 >
                   Business Websites →
                 </Link>
                 <Link
                   to="/services/gym-fitness-websites"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-xs text-brand-text-sec hover:text-brand-accent py-2 px-3 block rounded hover:bg-black/5 font-medium"
+                  className="text-xs text-brand-text-sec hover:text-brand-accent py-2 px-3 block rounded hover:bg-white/5"
                 >
                   Gym &amp; Fitness Design →
                 </Link>
                 <Link
                   to="/services/small-business-websites"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-xs text-brand-text-sec hover:text-brand-accent py-2 px-3 block rounded hover:bg-black/5 font-medium"
+                  className="text-xs text-brand-text-sec hover:text-brand-accent py-2 px-3 block rounded hover:bg-white/5"
                 >
                   Small Business Websites →
                 </Link>
               </div>
 
-              <div className="pt-4 mt-2 border-t border-black/10 flex flex-col gap-3">
+              <div className="pt-4 mt-2 border-t border-white/10 flex flex-col gap-3">
                 <a
                   href={`https://wa.me/${siteConfig.contact.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-brand-accent text-white font-bold text-xs tracking-widest uppercase shadow-[0_4px_15px_rgba(21,128,61,0.25)] transition-transform active:scale-95"
+                  className="flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-brand-accent text-[#050706] font-bold text-xs tracking-widest uppercase shadow-[0_0_20px_rgba(183,255,69,0.3)] transition-transform active:scale-95"
                 >
                   <MessageCircle size={16} />
                   <span>Chat on WhatsApp</span>

@@ -123,28 +123,28 @@ export default function PortfolioPage() {
 
       <div className="py-24 sm:py-32 relative bg-transparent overflow-hidden">
         {/* Background Architectural Lines */}
-        <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-5">
-          <div className="w-[1px] h-full bg-black" />
-          <div className="w-[1px] h-full bg-black" />
-          <div className="w-[1px] h-full bg-black hidden md:block" />
-          <div className="w-[1px] h-full bg-black" />
+        <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-10">
+          <div className="w-[1px] h-full bg-white" />
+          <div className="w-[1px] h-full bg-white" />
+          <div className="w-[1px] h-full bg-white hidden md:block" />
+          <div className="w-[1px] h-full bg-white" />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-[1400px] relative z-10">
           <div className="mb-8">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-brand-text-sec hover:text-brand-accent transition-colors font-semibold"
+              className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-brand-text-sec hover:text-brand-accent transition-colors"
             >
               <ArrowLeft size={14} /> Back to Home
             </Link>
           </div>
 
           <header className="mb-12 sm:mb-16">
-            <div className="text-[10px] sm:text-xs font-bold tracking-[0.25em] text-brand-accent uppercase mb-4 font-mono">
+            <div className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] text-brand-accent uppercase mb-4 font-mono">
               DEMONSTRATIONS &amp; WORK SAMPLES
             </div>
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-bold uppercase tracking-tight leading-[1.1] mb-6 text-brand-text">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-bold uppercase tracking-tight leading-[1.1] mb-6">
               Web Design Portfolio &amp; <span className="text-brand-accent">Concept Demos</span>
             </h1>
             <p className="text-base sm:text-lg text-brand-text-sec leading-relaxed max-w-3xl font-normal mb-6">
@@ -152,10 +152,10 @@ export default function PortfolioPage() {
             </p>
 
             {/* Honest Demo Notice Alert Box */}
-            <div className="flex items-start gap-3 p-4 rounded-xl bg-brand-bg-sec border border-black/10 text-xs text-brand-text-sec max-w-3xl shadow-sm">
+            <div className="flex items-start gap-3 p-4 rounded-xl bg-white/[0.02] border border-white/10 text-xs text-brand-text-sec max-w-3xl">
               <Info size={16} className="text-brand-accent shrink-0 mt-0.5" />
               <p>
-                <strong className="text-brand-text font-semibold">Note on Transparency:</strong> The projects displayed below are concept demonstrations and interactive prototypes designed and built by Thundro to showcase our design capabilities across specific industries. They are clearly labeled as concept demos rather than commercial client commissions.
+                <strong className="text-white">Note on Transparency:</strong> The projects displayed below are concept demonstrations and interactive prototypes designed and built by Thundro to showcase our design capabilities across specific industries. They are clearly labeled as concept demos rather than commercial client commissions.
               </p>
             </div>
           </header>
@@ -169,8 +169,8 @@ export default function PortfolioPage() {
                 aria-pressed={activeCategory === category}
                 className={`px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[10px] font-bold tracking-widest uppercase transition-all whitespace-nowrap shrink-0 ${
                   activeCategory === category
-                    ? 'bg-brand-text text-white shadow-sm'
-                    : 'bg-white text-brand-text-sec hover:text-brand-text border border-black/10 hover:border-black/30'
+                    ? 'bg-brand-accent text-[#050706]'
+                    : 'bg-transparent text-brand-text-sec hover:text-white border border-white/10 hover:border-white/30'
                 }`}
               >
                 {category}
@@ -183,22 +183,22 @@ export default function PortfolioPage() {
             {filteredProjects.map((project) => (
               <article
                 key={project.id}
-                className="flex flex-col rounded-2xl bg-white border border-black/10 overflow-hidden hover:border-brand-accent/40 shadow-sm hover:shadow-xl transition-all duration-300 group"
+                className="flex flex-col rounded-2xl bg-white/[0.02] border border-white/10 overflow-hidden hover:border-brand-accent/40 transition-all duration-300 group"
               >
                 {/* Media Preview Box */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+                <div className="relative aspect-[16/10] overflow-hidden bg-black/60">
                   <img
                     src={project.image}
                     alt={`${project.title} - ${project.category} Website Design Concept Demo by Thundro`}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                   />
                   <div className="absolute top-3 left-3 flex gap-2">
-                    <span className="text-[9px] font-mono font-bold tracking-wider text-brand-accent uppercase px-2.5 py-1 rounded-full border border-brand-accent/30 bg-white/95 backdrop-blur-sm shadow-sm">
+                    <span className="text-[9px] font-mono tracking-wider text-brand-accent uppercase px-2.5 py-1 rounded-full border border-brand-accent/30 bg-[#050706]/90 backdrop-blur-sm">
                       {project.badge}
                     </span>
-                    <span className="text-[9px] font-mono font-semibold tracking-wider text-brand-text uppercase px-2.5 py-1 rounded-full border border-black/10 bg-white/95 backdrop-blur-sm shadow-sm">
+                    <span className="text-[9px] font-mono tracking-wider text-white uppercase px-2.5 py-1 rounded-full border border-white/20 bg-[#050706]/90 backdrop-blur-sm">
                       {project.category}
                     </span>
                   </div>
@@ -206,13 +206,13 @@ export default function PortfolioPage() {
 
                 {/* Content Area */}
                 <div className="p-6 flex flex-col flex-grow">
-                  <h2 className="text-xl sm:text-2xl font-display font-bold uppercase tracking-tight text-brand-text mb-2">
+                  <h2 className="text-xl sm:text-2xl font-display font-bold uppercase tracking-tight text-white mb-2">
                     {project.title}
                   </h2>
-                  <h3 className="text-xs font-mono text-brand-accent uppercase tracking-wider mb-3 font-bold">
+                  <h3 className="text-xs font-mono text-brand-accent uppercase tracking-wider mb-3">
                     {project.headline}
                   </h3>
-                  <p className="text-xs sm:text-sm text-brand-text-sec leading-relaxed mb-6 flex-grow font-normal">
+                  <p className="text-xs sm:text-sm text-brand-text-sec leading-relaxed mb-6 flex-grow">
                     {project.description}
                   </p>
 
@@ -221,7 +221,7 @@ export default function PortfolioPage() {
                     {project.tech.map((t, i) => (
                       <span
                         key={i}
-                        className="text-[10px] font-mono text-brand-text-sec px-2 py-0.5 rounded bg-black/5 border border-black/5"
+                        className="text-[10px] font-mono text-brand-text-sec/80 px-2 py-0.5 rounded bg-white/5 border border-white/5"
                       >
                         {t}
                       </span>
@@ -233,7 +233,7 @@ export default function PortfolioPage() {
                     href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Hi%20THUNDRO,%20I'm%20interested%20in%20a%20website%20similar%20to%20the%20${project.title}%20(${project.category})%20concept.`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md border border-black/15 bg-white hover:bg-brand-text hover:border-brand-text text-brand-text hover:text-white text-xs font-bold tracking-widest uppercase transition-all duration-300 shadow-sm hover:shadow-md"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded border border-white/20 bg-white/5 hover:bg-brand-accent hover:border-brand-accent text-white hover:text-black text-xs font-bold tracking-widest uppercase transition-all duration-300"
                   >
                     <span>Request Similar Build</span>
                     <ShoppingCart size={14} />
@@ -244,44 +244,44 @@ export default function PortfolioPage() {
           </div>
 
           {/* Links to Services */}
-          <section className="mb-16 p-8 sm:p-12 rounded-2xl bg-brand-bg-sec border border-black/10 shadow-sm">
-            <h2 className="text-xl sm:text-3xl font-display font-bold uppercase text-brand-text mb-4">
+          <section className="mb-16 p-8 sm:p-12 rounded-2xl bg-[#080B09] border border-white/10">
+            <h2 className="text-xl sm:text-3xl font-display font-bold uppercase text-white mb-4">
               Explore Our Specific Service Solutions
             </h2>
-            <p className="text-sm text-brand-text-sec mb-8 max-w-2xl font-normal">
+            <p className="text-sm text-brand-text-sec mb-8 max-w-2xl">
               We provide end-to-end design and front-end development tailored to your sector's exact conversion goals.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <Link
                 to="/services/business-websites"
-                className="p-5 rounded-xl bg-white border border-black/10 hover:border-brand-accent/50 transition-all flex flex-col justify-between shadow-sm hover:shadow-md"
+                className="p-4 rounded-xl bg-white/[0.02] border border-white/10 hover:border-brand-accent/50 transition-all flex flex-col justify-between"
               >
-                <span className="text-sm font-bold text-brand-text uppercase mb-1">Business Websites</span>
+                <span className="text-sm font-bold text-white uppercase mb-1">Business Websites</span>
                 <span className="text-xs text-brand-text-sec">Custom multi-page sites →</span>
               </Link>
               <Link
                 to="/services/gym-fitness-websites"
-                className="p-5 rounded-xl bg-white border border-black/10 hover:border-brand-accent/50 transition-all flex flex-col justify-between shadow-sm hover:shadow-md"
+                className="p-4 rounded-xl bg-white/[0.02] border border-white/10 hover:border-brand-accent/50 transition-all flex flex-col justify-between"
               >
-                <span className="text-sm font-bold text-brand-text uppercase mb-1">Gym &amp; Fitness Design</span>
+                <span className="text-sm font-bold text-white uppercase mb-1">Gym &amp; Fitness Design</span>
                 <span className="text-xs text-brand-text-sec">Membership &amp; schedule layouts →</span>
               </Link>
               <Link
                 to="/services/small-business-websites"
-                className="p-5 rounded-xl bg-white border border-black/10 hover:border-brand-accent/50 transition-all flex flex-col justify-between shadow-sm hover:shadow-md"
+                className="p-4 rounded-xl bg-white/[0.02] border border-white/10 hover:border-brand-accent/50 transition-all flex flex-col justify-between"
               >
-                <span className="text-sm font-bold text-brand-text uppercase mb-1">Small Business Sites</span>
+                <span className="text-sm font-bold text-white uppercase mb-1">Small Business Sites</span>
                 <span className="text-xs text-brand-text-sec">Fast, affordable local web solutions →</span>
               </Link>
             </div>
           </section>
 
           {/* CTA Box */}
-          <section className="p-8 sm:p-12 rounded-2xl sm:rounded-3xl bg-brand-bg-sec border border-black/10 text-center flex flex-col items-center shadow-lg">
-            <h2 className="text-2xl sm:text-4xl font-display font-bold uppercase tracking-tight mb-4 text-brand-text">
+          <section className="p-8 sm:p-12 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-white/[0.05] via-transparent to-brand-accent/[0.05] border border-white/10 text-center flex flex-col items-center">
+            <h2 className="text-2xl sm:text-4xl font-display font-bold uppercase tracking-tight mb-4">
               Have an Idea for Your Website?
             </h2>
-            <p className="text-sm sm:text-base text-brand-text-sec max-w-xl mb-8 leading-relaxed font-normal">
+            <p className="text-sm sm:text-base text-brand-text-sec max-w-xl mb-8 leading-relaxed">
               Whether you need inspiration from our prototypes or have an existing design ready to build, we can bring your website to life with speed and precision.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
@@ -289,13 +289,13 @@ export default function PortfolioPage() {
                 href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Hi%20THUNDRO,%20I'd%20like%20to%20discuss%20a%20new%20website%20project.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3.5 rounded-full bg-brand-accent text-white font-bold text-xs tracking-widest uppercase hover:bg-brand-text transition-all shadow-md hover:shadow-xl"
+                className="px-8 py-3.5 rounded-full bg-brand-accent text-[#050706] font-bold text-xs tracking-widest uppercase hover:bg-white transition-all shadow-[0_0_20px_rgba(183,255,69,0.3)]"
               >
                 Chat on WhatsApp
               </a>
               <a
                 href={`mailto:${siteConfig.contact.email}?subject=Project%20Enquiry`}
-                className="px-8 py-3.5 rounded-full border border-black/15 bg-white hover:border-black text-brand-text font-bold text-xs tracking-widest uppercase transition-all shadow-sm"
+                className="px-8 py-3.5 rounded-full border border-white/20 hover:border-white text-white font-bold text-xs tracking-widest uppercase transition-all"
               >
                 Email Enquiry
               </a>

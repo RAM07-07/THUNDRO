@@ -63,28 +63,28 @@ export default function SmallBusinessWebsites() {
 
       <div className="py-24 sm:py-32 relative bg-transparent overflow-hidden">
         {/* Background Architectural Lines */}
-        <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-5">
-          <div className="w-[1px] h-full bg-black" />
-          <div className="w-[1px] h-full bg-black" />
-          <div className="w-[1px] h-full bg-black hidden md:block" />
-          <div className="w-[1px] h-full bg-black" />
+        <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-10">
+          <div className="w-[1px] h-full bg-white" />
+          <div className="w-[1px] h-full bg-white" />
+          <div className="w-[1px] h-full bg-white hidden md:block" />
+          <div className="w-[1px] h-full bg-white" />
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-[1200px] relative z-10">
           <div className="mb-8">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-brand-text-sec hover:text-brand-accent transition-colors font-semibold"
+              className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-brand-text-sec hover:text-brand-accent transition-colors"
             >
               <ArrowLeft size={14} /> Back to Home
             </Link>
           </div>
 
           <header className="mb-14 sm:mb-20">
-            <div className="text-[10px] sm:text-xs font-bold tracking-[0.25em] text-brand-accent uppercase mb-4 font-mono">
+            <div className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] text-brand-accent uppercase mb-4 font-mono">
               SERVICES / LOCAL &amp; SMALL BUSINESS
             </div>
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-bold uppercase tracking-tight leading-[1.1] mb-6 text-brand-text">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-bold uppercase tracking-tight leading-[1.1] mb-6">
               Website Design for <span className="text-brand-accent">Small Businesses</span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-brand-text-sec leading-relaxed max-w-3xl font-normal">
@@ -93,8 +93,8 @@ export default function SmallBusinessWebsites() {
           </header>
 
           <section className="mb-16 sm:mb-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            <div className="lg:col-span-7 space-y-5 text-sm sm:text-base text-brand-text-sec leading-relaxed font-normal">
-              <h2 className="text-2xl sm:text-3xl font-display font-bold uppercase text-brand-text tracking-tight">
+            <div className="lg:col-span-7 space-y-5 text-sm sm:text-base text-brand-text-sec leading-relaxed">
+              <h2 className="text-2xl sm:text-3xl font-display font-bold uppercase text-white tracking-tight">
                 Stop Losing Customers to Outdated Online Presence
               </h2>
               <p>
@@ -108,8 +108,8 @@ export default function SmallBusinessWebsites() {
               </p>
             </div>
 
-            <div className="lg:col-span-5 bg-white border border-black/10 rounded-2xl p-6 sm:p-8 shadow-sm">
-              <h3 className="text-lg font-display font-bold uppercase tracking-wider text-brand-text mb-4">
+            <div className="lg:col-span-5 bg-white/[0.03] border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-md">
+              <h3 className="text-lg font-display font-bold uppercase tracking-wider text-white mb-4">
                 Ideal For Local Businesses Like:
               </h3>
               <ul className="space-y-3">
@@ -132,10 +132,10 @@ export default function SmallBusinessWebsites() {
 
           {/* Value Highlights */}
           <section className="mb-16 sm:mb-24">
-            <div className="text-[10px] sm:text-xs font-bold tracking-[0.25em] text-brand-text-sec uppercase mb-4 font-mono">
+            <div className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] text-brand-text-sec uppercase mb-4 font-mono">
               THE THUNDRO ADVANTAGE
             </div>
-            <h2 className="text-2xl sm:text-4xl font-display font-bold uppercase tracking-tight mb-8 sm:mb-12 text-brand-text">
+            <h2 className="text-2xl sm:text-4xl font-display font-bold uppercase tracking-tight mb-8 sm:mb-12">
               Why Small Business Owners Trust Thundro
             </h2>
 
@@ -143,15 +143,15 @@ export default function SmallBusinessWebsites() {
               {smallBizBenefits.map((feat, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-2xl bg-white border border-black/10 hover:border-brand-accent/40 shadow-sm hover:shadow-md transition-all group"
+                  className="p-6 rounded-xl bg-white/[0.02] border border-white/10 hover:border-brand-accent/40 transition-all group"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-brand-bg-sec border border-black/10 flex items-center justify-center text-brand-accent mb-4 group-hover:scale-105 transition-transform shadow-sm">
+                  <div className="w-12 h-12 rounded-lg bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center text-brand-accent mb-4 group-hover:scale-105 transition-transform">
                     <feat.icon size={22} />
                   </div>
-                  <h3 className="text-lg font-display font-bold uppercase tracking-tight text-brand-text mb-2">
+                  <h3 className="text-lg font-display font-bold uppercase tracking-tight text-white mb-2">
                     {feat.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-brand-text-sec leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-brand-text-sec leading-relaxed">
                     {feat.description}
                   </p>
                 </div>
@@ -160,40 +160,40 @@ export default function SmallBusinessWebsites() {
           </section>
 
           {/* Simple Process Overview */}
-          <section className="mb-16 sm:mb-24 p-8 sm:p-10 rounded-2xl bg-white border border-black/10 shadow-sm">
-            <h3 className="text-xl sm:text-2xl font-display font-bold uppercase text-brand-text mb-4">
+          <section className="mb-16 sm:mb-24 p-8 sm:p-10 rounded-2xl bg-[#080B09] border border-white/10">
+            <h3 className="text-xl sm:text-2xl font-display font-bold uppercase text-white mb-4">
               Our Simple 4-Step Process for Small Businesses
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs sm:text-sm text-brand-text-sec font-normal">
-              <div className="border-l-2 border-brand-accent pl-4">
-                <span className="font-mono text-brand-accent text-xs block mb-1 font-bold">STEP 01</span>
-                <strong className="text-brand-text block mb-1">Quick Discovery</strong>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs sm:text-sm text-brand-text-sec">
+              <div className="border-l-2 border-brand-accent/40 pl-4">
+                <span className="font-mono text-brand-accent text-xs block mb-1">STEP 01</span>
+                <strong className="text-white block mb-1">Quick Discovery</strong>
                 We review your goals, brand assets, and target audience over WhatsApp or email.
               </div>
-              <div className="border-l-2 border-brand-accent pl-4">
-                <span className="font-mono text-brand-accent text-xs block mb-1 font-bold">STEP 02</span>
-                <strong className="text-brand-text block mb-1">Layout &amp; Design</strong>
+              <div className="border-l-2 border-brand-accent/40 pl-4">
+                <span className="font-mono text-brand-accent text-xs block mb-1">STEP 02</span>
+                <strong className="text-white block mb-1">Layout &amp; Design</strong>
                 We craft a clean, mobile-first design prototype for your review and approval.
               </div>
-              <div className="border-l-2 border-brand-accent pl-4">
-                <span className="font-mono text-brand-accent text-xs block mb-1 font-bold">STEP 03</span>
-                <strong className="text-brand-text block mb-1">Rapid Development</strong>
+              <div className="border-l-2 border-brand-accent/40 pl-4">
+                <span className="font-mono text-brand-accent text-xs block mb-1">STEP 03</span>
+                <strong className="text-white block mb-1">Rapid Development</strong>
                 We write clean, lightweight code and integrate your contact and booking forms.
               </div>
-              <div className="border-l-2 border-brand-accent pl-4">
-                <span className="font-mono text-brand-accent text-xs block mb-1 font-bold">STEP 04</span>
-                <strong className="text-brand-text block mb-1">Launch &amp; Verify</strong>
+              <div className="border-l-2 border-brand-accent/40 pl-4">
+                <span className="font-mono text-brand-accent text-xs block mb-1">STEP 04</span>
+                <strong className="text-white block mb-1">Launch &amp; Verify</strong>
                 We connect your domain, run mobile speed checks, and submit your site to search engines.
               </div>
             </div>
           </section>
 
           {/* CTA Box */}
-          <section className="p-8 sm:p-12 rounded-2xl sm:rounded-3xl bg-brand-bg-sec border border-black/10 text-center flex flex-col items-center shadow-lg">
-            <h2 className="text-2xl sm:text-4xl font-display font-bold uppercase tracking-tight mb-4 text-brand-text">
+          <section className="p-8 sm:p-12 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-white/[0.05] via-transparent to-brand-accent/[0.05] border border-white/10 text-center flex flex-col items-center">
+            <h2 className="text-2xl sm:text-4xl font-display font-bold uppercase tracking-tight mb-4">
               Get an Honest Quote for Your Business
             </h2>
-            <p className="text-sm sm:text-base text-brand-text-sec max-w-xl mb-8 leading-relaxed font-normal">
+            <p className="text-sm sm:text-base text-brand-text-sec max-w-xl mb-8 leading-relaxed">
               No complicated sales pitches. Tell us what your business does and we'll tell you how much it costs and how quickly we can build it.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center">
@@ -201,13 +201,13 @@ export default function SmallBusinessWebsites() {
                 href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Hi%20THUNDRO,%20I'm%20a%20small%20business%20owner%20interested%20in%20a%20new%20website.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3.5 rounded-full bg-brand-accent text-white font-bold text-xs tracking-widest uppercase hover:bg-brand-text transition-all shadow-md hover:shadow-xl"
+                className="px-8 py-3.5 rounded-full bg-brand-accent text-[#050706] font-bold text-xs tracking-widest uppercase hover:bg-white transition-all shadow-[0_0_20px_rgba(183,255,69,0.3)]"
               >
                 Chat on WhatsApp
               </a>
               <Link
                 to="/portfolio"
-                className="px-8 py-3.5 rounded-full border border-black/15 bg-white hover:border-black text-brand-text font-bold text-xs tracking-widest uppercase transition-all shadow-sm"
+                className="px-8 py-3.5 rounded-full border border-white/20 hover:border-white text-white font-bold text-xs tracking-widest uppercase transition-all"
               >
                 Explore Demo Work
               </Link>

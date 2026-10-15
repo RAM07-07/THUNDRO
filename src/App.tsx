@@ -14,15 +14,13 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen text-brand-text flex flex-col font-sans relative bg-white">
-        <div className="fixed inset-0 z-[-1] pointer-events-none bg-white">
-          <div className="w-full h-full opacity-15">
-            <ScrollSequenceBackground />
-          </div>
-          {/* White gradient overlays for bright theme readability */}
-          <div className="absolute inset-0 bg-white/70 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-white/80 to-white pointer-events-none" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#FFFFFF_90%)] pointer-events-none opacity-90" />
+      <div className="min-h-screen text-brand-text flex flex-col font-sans relative">
+        <div className="fixed inset-0 z-[-1] pointer-events-none bg-[#050706]">
+          <ScrollSequenceBackground />
+          {/* Black fade screen across all pages */}
+          <div className="absolute inset-0 bg-[#050706]/60 mix-blend-multiply pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#050706]/90 via-[#050706]/40 to-[#050706]/90 pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#050706_90%)] pointer-events-none opacity-80" />
         </div>
         <div className="relative z-0 flex flex-col min-h-screen">
           <Navbar />

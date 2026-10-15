@@ -39,7 +39,7 @@ export default function WhyChooseUs() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl sm:text-4xl font-bold leading-tight mb-4 sm:mb-6 text-brand-text"
+              className="text-3xl sm:text-4xl font-bold leading-tight mb-4 sm:mb-6"
             >
               Why Partner With <span className="text-brand-accent">THUNDRO?</span>
             </motion.h2>
@@ -48,7 +48,7 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-brand-text-sec text-base sm:text-lg leading-relaxed font-normal"
+              className="text-brand-text-sec text-base sm:text-lg leading-relaxed"
             >
               At THUNDRO, we go beyond generic templates to create custom websites tailored to your brand and business goals. We combine modern design, seamless functionality, and performance-focused development to deliver digital experiences that capture attention and turn visitors into customers. More than just a web development studio, we’re your dedicated partner in building a stronger online presence and growing your business.
             </motion.p>
@@ -63,9 +63,9 @@ export default function WhyChooseUs() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="flex items-center gap-3.5 sm:gap-4 p-4 rounded-xl bg-white border border-black/10 hover:border-brand-accent/40 hover:shadow-md transition-all group"
+                  className="flex items-center gap-3.5 sm:gap-4 p-3.5 sm:p-4 rounded-xl bg-brand-bg-sec/50 border border-brand-border/20 hover:border-brand-accent/30 hover:bg-brand-bg-sec transition-all group"
                 >
-                  <div className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 rounded-lg bg-brand-bg-sec border border-black/10 flex items-center justify-center text-brand-accent group-hover:scale-110 group-hover:border-brand-accent/50 transition-all shadow-sm">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 rounded-lg bg-brand-bg border border-brand-border/50 flex items-center justify-center text-brand-accent group-hover:scale-110 group-hover:border-brand-accent/50 transition-all shadow-[0_0_10px_rgba(183,255,69,0.05)]">
                     <reason.icon size={20} />
                   </div>
                   <span className="font-semibold text-sm sm:text-base text-brand-text">{reason.title}</span>
