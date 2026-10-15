@@ -48,16 +48,26 @@ export default function Hero() {
           </motion.span>
         </h1>
         
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mt-6 sm:mt-8 max-w-2xl text-xs sm:text-base text-brand-text-sec font-normal leading-relaxed px-4"
+        >
+          We design and develop modern, responsive websites for businesses, gyms, salons, travel agencies, and creative brands across Tamil Nadu and India.
+        </motion.p>
+        
         <motion.a 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
           href="#contact" 
+          aria-label="Contact Thundro to start your website project"
           onClick={(e) => {
             e.preventDefault();
             scrollToSection('contact');
           }}
-          className="mt-8 sm:mt-12 md:mt-16 px-8 py-3.5 sm:px-10 sm:py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-[11px] sm:text-xs font-bold tracking-widest uppercase hover:bg-white/10 hover:border-brand-accent/50 hover:text-brand-accent transition-all duration-300 group shadow-[0_0_20px_rgba(0,0,0,0.5)] cursor-pointer"
+          className="mt-8 sm:mt-10 md:mt-12 px-8 py-3.5 sm:px-10 sm:py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-md text-[11px] sm:text-xs font-bold tracking-widest uppercase hover:bg-white/10 hover:border-brand-accent/50 hover:text-brand-accent transition-all duration-300 group shadow-[0_0_20px_rgba(0,0,0,0.5)] cursor-pointer"
         >
           LET'S TALK
         </motion.a>

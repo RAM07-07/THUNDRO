@@ -68,6 +68,8 @@ export default function FAQ() {
                 <button
                   className="w-full px-4 py-4 sm:px-6 sm:py-5 flex items-center justify-between text-left focus:outline-none min-h-[52px] sm:min-h-[60px]"
                   onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                  aria-expanded={openIndex === idx}
+                  aria-controls={`faq-answer-${idx}`}
                 >
                   <span className="font-semibold text-sm sm:text-base pr-3 sm:pr-4 leading-snug">{faq.question}</span>
                   <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${openIndex === idx ? 'bg-brand-accent text-brand-bg' : 'bg-brand-bg-sec text-brand-text-sec'}`}>
@@ -78,6 +80,9 @@ export default function FAQ() {
                 <AnimatePresence>
                   {openIndex === idx && (
                     <motion.div
+                      id={`faq-answer-${idx}`}
+                      role="region"
+                      aria-labelledby={`faq-question-${idx}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}

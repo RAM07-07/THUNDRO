@@ -10,7 +10,7 @@ const projects = [
     title: 'FitZone',
     category: 'Fitness',
     description: 'Gym and fitness website with membership plans and trainer profiles.',
-    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=900&auto=format&fit=crop',
     color: 'from-orange-500/20 to-brand-bg',
     type: 'desktop'
   },
@@ -19,7 +19,7 @@ const projects = [
     title: 'WanderWay',
     category: 'Travel',
     description: 'Travel destinations, tour packages, and enquiry functionality.',
-    image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1421&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=900&auto=format&fit=crop',
     color: 'from-blue-500/20 to-brand-bg',
     type: 'mobile'
   },
@@ -28,7 +28,7 @@ const projects = [
     title: 'UrbanBites',
     category: 'Restaurant',
     description: 'Premium food photography, menu, and table enquiries.',
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1470&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=900&auto=format&fit=crop',
     color: 'from-red-500/20 to-brand-bg',
     type: 'desktop'
   },
@@ -37,7 +37,7 @@ const projects = [
     title: 'GlowStudio',
     category: 'Business',
     description: 'Elegant beauty aesthetic, service listings, and appointment enquiries.',
-    image: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1469&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=900&auto=format&fit=crop',
     color: 'from-pink-500/20 to-brand-bg',
     type: 'mobile'
   },
@@ -46,7 +46,7 @@ const projects = [
     title: 'NovaStore',
     category: 'E-commerce',
     description: 'Product catalogue, details, shopping cart, and checkout UI. (Concept)',
-    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1470&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=900&auto=format&fit=crop',
     color: 'from-purple-500/20 to-brand-bg',
     type: 'desktop'
   },
@@ -55,7 +55,7 @@ const projects = [
     title: 'EstatePro',
     category: 'Business',
     description: 'Property listings, detailed pages, and viewing enquiry forms.',
-    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1470&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=900&auto=format&fit=crop',
     color: 'from-brand-accent/20 to-brand-bg',
     type: 'desktop'
   }
@@ -118,12 +118,24 @@ function ProjectRow({ project, idx }: { project: any, idx: number }) {
                 <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
                 <div className="w-2 h-2 rounded-full bg-green-500/50" />
               </div>
-              <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" />
+              <img 
+                src={project.image} 
+                alt={`${project.title} - ${project.category} Website Design Project by Thundro`} 
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" 
+              />
             </div>
           ) : (
             <div className="absolute inset-0 flex items-center justify-center p-4">
               <div className="relative w-full max-w-[170px] sm:max-w-[240px] aspect-[9/19] bg-black rounded-[1.5rem] sm:rounded-[2rem] border-[6px] sm:border-[8px] border-[#222] shadow-2xl overflow-hidden transform group-hover:scale-105 transition-transform duration-700 ease-out">
-                <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" />
+                <img 
+                  src={project.image} 
+                  alt={`${project.title} - ${project.category} Website Design Project by Thundro`} 
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700" 
+                />
               </div>
             </div>
           )}
@@ -169,6 +181,7 @@ export default function Portfolio() {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
+                aria-pressed={activeCategory === category}
                 className={`px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[10px] font-bold tracking-widest uppercase transition-all whitespace-nowrap shrink-0 ${
                   activeCategory === category 
                     ? 'bg-brand-accent text-[#050706]' 

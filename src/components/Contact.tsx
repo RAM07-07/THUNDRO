@@ -142,12 +142,13 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 relative z-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   <div>
-                    <label className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
+                    <label htmlFor="contact-name" className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
                       Full Name <span className="text-brand-accent">*</span>
                     </label>
                     <input 
                       required 
                       type="text" 
+                      id="contact-name"
                       name="name" 
                       value={formData.name} 
                       onChange={handleChange} 
@@ -157,11 +158,12 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
+                    <label htmlFor="contact-business" className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
                       Business Name
                     </label>
                     <input 
                       type="text" 
+                      id="contact-business"
                       name="businessName" 
                       value={formData.businessName} 
                       onChange={handleChange} 
@@ -173,12 +175,13 @@ export default function Contact() {
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                   <div>
-                    <label className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
+                    <label htmlFor="contact-email" className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
                       Email Address <span className="text-brand-accent">*</span>
                     </label>
                     <input 
                       required 
                       type="email" 
+                      id="contact-email"
                       name="email" 
                       value={formData.email} 
                       onChange={handleChange} 
@@ -188,12 +191,13 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
+                    <label htmlFor="contact-whatsapp" className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
                       WhatsApp Number <span className="text-brand-accent">*</span>
                     </label>
                     <input 
                       required 
                       type="tel" 
+                      id="contact-whatsapp"
                       name="whatsapp" 
                       value={formData.whatsapp} 
                       onChange={handleChange} 
@@ -204,11 +208,12 @@ export default function Contact() {
                 </div>
                 
                 <div>
-                  <label className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
+                  <label htmlFor="contact-website-type" className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
                     Website Type
                   </label>
                   <div className="relative">
                     <select 
+                      id="contact-website-type"
                       aria-label="Website Type" 
                       name="websiteType" 
                       value={formData.websiteType} 
@@ -226,10 +231,11 @@ export default function Contact() {
                 </div>
                 
                 <div>
-                  <label className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
+                  <label htmlFor="contact-description" className="block text-[11px] font-bold tracking-wider text-brand-text-sec uppercase mb-1.5">
                     Project Details
                   </label>
                   <textarea 
+                    id="contact-description"
                     name="description" 
                     value={formData.description} 
                     onChange={handleChange} 

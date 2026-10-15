@@ -44,6 +44,8 @@ export default function About() {
                 <img 
                   src="/about_agency_workspace.jpg" 
                   alt="THUNDRO Design Agency Workspace" 
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-center filter saturate-[0.8] contrast-125 group-hover:scale-105 transition-transform duration-[2s] ease-out"
                 />
                 
