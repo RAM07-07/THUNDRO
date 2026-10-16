@@ -89,6 +89,7 @@ export default function Portfolio() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
 
@@ -112,6 +113,26 @@ export default function Portfolio() {
     setActiveIndex((prev) => (prev + 1) % total);
   }, [total]);
 
+  // Automatic moving animation (smoothly cycles every 3.5s; pauses on hover or user interaction)
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % total);
+    }, 3500);
+
+    return () => clearInterval(timer);
+  }, [isPaused, total, activeIndex]);
+
+  // Pause autoplay when browser tab is inactive/hidden
+  useEffect(() => {
+    const handleVisibility = () => {
+      setIsPaused(document.hidden);
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => document.removeEventListener('visibilitychange', handleVisibility);
+  }, []);
+
   // Keyboard navigation when user is focused on the carousel
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'ArrowLeft') {
@@ -125,20 +146,23 @@ export default function Portfolio() {
 
   // Touch gesture handling
   const handleTouchStart = (e: React.TouchEvent) => {
+    setIsPaused(true);
     setTouchStartX(e.touches[0].clientX);
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX === null) return;
-    const diff = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(diff) > 40) {
-      if (diff > 0) {
-        handlePrev();
-      } else {
-        handleNext();
+    if (touchStartX !== null) {
+      const diff = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) {
+          handlePrev();
+        } else {
+          handleNext();
+        }
       }
+      setTouchStartX(null);
     }
-    setTouchStartX(null);
+    setIsPaused(false);
   };
 
   // Helper to compute circular distance in [-total/2, total/2]
@@ -220,22 +244,32 @@ export default function Portfolio() {
           onKeyDown={handleKeyDown}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
           className="relative w-full max-w-[1400px] mx-auto h-[320px] sm:h-[420px] md:h-[480px] lg:h-[530px] flex items-center justify-center select-none overflow-x-clip outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-3xl"
           style={{ perspective: '1200px' }}
         >
           {/* Navigation Arrows */}
           <button
-            onClick={handlePrev}
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              handlePrev();
+            }}
             aria-label="Previous project"
-            className="absolute left-2 sm:left-4 md:left-8 z-40 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-[#0A0D0B]/80 backdrop-blur-md border border-white/10 shadow-xl hover:shadow-[0_0_20px_rgba(183,255,69,0.3)] hover:border-brand-accent hover:bg-brand-accent hover:text-[#050706] text-white flex items-center justify-center transition-all duration-300 active:scale-95 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent cursor-pointer"
+            className="absolute left-2 sm:left-4 md:left-8 z-50 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-[#0A0D0B]/85 backdrop-blur-md border border-white/15 shadow-2xl hover:shadow-[0_0_25px_rgba(183,255,69,0.35)] hover:border-brand-accent hover:bg-brand-accent hover:text-[#050706] text-white flex items-center justify-center transition-all duration-300 active:scale-90 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent cursor-pointer"
           >
             <ChevronLeft size={24} className="group-hover:-translate-x-0.5 transition-transform" />
           </button>
 
           <button
-            onClick={handleNext}
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleNext();
+            }}
             aria-label="Next project"
-            className="absolute right-2 sm:right-4 md:right-8 z-40 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-[#0A0D0B]/80 backdrop-blur-md border border-white/10 shadow-xl hover:shadow-[0_0_20px_rgba(183,255,69,0.3)] hover:border-brand-accent hover:bg-brand-accent hover:text-[#050706] text-white flex items-center justify-center transition-all duration-300 active:scale-95 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent cursor-pointer"
+            className="absolute right-2 sm:right-4 md:right-8 z-50 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-[#0A0D0B]/85 backdrop-blur-md border border-white/15 shadow-2xl hover:shadow-[0_0_25px_rgba(183,255,69,0.35)] hover:border-brand-accent hover:bg-brand-accent hover:text-[#050706] text-white flex items-center justify-center transition-all duration-300 active:scale-90 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent cursor-pointer"
           >
             <ChevronRight size={24} className="group-hover:translate-x-0.5 transition-transform" />
           </button>
@@ -392,37 +426,68 @@ export default function Portfolio() {
           </div>
         </motion.div>
 
-        {/* Pagination Dots */}
+        {/* Pagination Dots & Navigation Controls */}
         <div 
-          className="flex items-center justify-center gap-2 mt-4 sm:mt-6 mb-8 sm:mb-12"
-          role="tablist"
-          aria-label="Project pagination"
+          className="flex items-center justify-center gap-3 sm:gap-4 mt-5 sm:mt-6 mb-8 sm:mb-12"
+          role="toolbar"
+          aria-label="Portfolio carousel controls"
         >
-          {projects.map((proj, idx) => {
-            const isDotActive = idx === activeIndex;
-            return (
-              <button
-                key={proj.id}
-                onClick={() => setActiveIndex(idx)}
-                role="tab"
-                aria-selected={isDotActive}
-                aria-label={`Show ${proj.title}`}
-                className="p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-full cursor-pointer"
-              >
-                <span
-                  className={`block h-2 rounded-full transition-all duration-300 ${
-                    isDotActive 
-                      ? 'w-8 bg-brand-accent shadow-[0_0_12px_rgba(183,255,69,0.5)]' 
-                      : 'w-2 bg-white/20 hover:bg-white/40'
-                  }`}
-                />
-              </button>
-            );
-          })}
+          {/* Mobile-friendly Arrow button */}
+          <button
+            type="button"
+            onClick={handlePrev}
+            aria-label="Previous project"
+            className="sm:hidden w-8 h-8 rounded-full border border-white/10 bg-[#0A0D0B]/80 text-brand-text-sec hover:text-brand-accent hover:border-brand-accent flex items-center justify-center transition-colors active:scale-90 cursor-pointer"
+          >
+            <ChevronLeft size={16} />
+          </button>
+
+          <div 
+            className="flex items-center gap-2"
+            role="tablist"
+            aria-label="Project pagination"
+          >
+            {projects.map((proj, idx) => {
+              const isDotActive = idx === activeIndex;
+              return (
+                <button
+                  key={proj.id}
+                  type="button"
+                  onClick={() => setActiveIndex(idx)}
+                  role="tab"
+                  aria-selected={isDotActive}
+                  aria-label={`Show ${proj.title}`}
+                  className="p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-full cursor-pointer"
+                >
+                  <span
+                    className={`block h-2 rounded-full transition-all duration-300 ${
+                      isDotActive 
+                        ? 'w-8 bg-brand-accent shadow-[0_0_12px_rgba(183,255,69,0.5)]' 
+                        : 'w-2 bg-white/20 hover:bg-white/40'
+                    }`}
+                  />
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Mobile-friendly Arrow button */}
+          <button
+            type="button"
+            onClick={handleNext}
+            aria-label="Next project"
+            className="sm:hidden w-8 h-8 rounded-full border border-white/10 bg-[#0A0D0B]/80 text-brand-text-sec hover:text-brand-accent hover:border-brand-accent flex items-center justify-center transition-colors active:scale-90 cursor-pointer"
+          >
+            <ChevronRight size={16} />
+          </button>
         </div>
 
-        {/* Active Project Details Card */}
-        <div className="max-w-3xl mx-auto">
+        {/* Active Project Details Card (pauses autoplay while hovering) */}
+        <div 
+          className="max-w-3xl mx-auto"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={activeProject.id}
