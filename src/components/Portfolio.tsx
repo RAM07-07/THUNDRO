@@ -154,17 +154,17 @@ export default function Portfolio() {
   return (
     <section 
       id="portfolio" 
-      className="py-16 sm:py-24 md:py-32 relative bg-white text-[#111827] border-t border-[#E5E7EB] scroll-mt-20 sm:scroll-mt-24 overflow-hidden"
+      className="py-16 sm:py-24 md:py-32 relative bg-transparent text-brand-text border-t border-white/10 scroll-mt-20 sm:scroll-mt-24 overflow-hidden"
     >
       {/* Anchor alias for #work */}
       <span id="work" className="absolute -top-24 pointer-events-none" />
 
       {/* Subtle Architectural Lines */}
-      <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-5">
-        <div className="w-[1px] h-full bg-[#111827]" />
-        <div className="w-[1px] h-full bg-[#111827]" />
-        <div className="w-[1px] h-full bg-[#111827] hidden md:block" />
-        <div className="w-[1px] h-full bg-[#111827]" />
+      <div className="absolute inset-0 z-0 pointer-events-none flex justify-between px-4 sm:px-6 lg:px-12 max-w-[1600px] mx-auto w-full opacity-10">
+        <div className="w-[1px] h-full bg-white" />
+        <div className="w-[1px] h-full bg-white" />
+        <div className="w-[1px] h-full bg-white hidden md:block" />
+        <div className="w-[1px] h-full bg-white" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 max-w-[1600px] relative z-10">
@@ -182,7 +182,7 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-[10px] sm:text-xs font-bold tracking-[0.25em] sm:tracking-[0.3em] text-[#22C55E] uppercase mb-3 sm:mb-4 font-mono"
+            className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] sm:tracking-[0.3em] text-brand-text-sec uppercase mb-3 sm:mb-4 font-mono"
           >
             03 / SELECTED WORK
           </motion.div>
@@ -191,7 +191,7 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.1] uppercase text-[#111827] tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.1] uppercase text-white tracking-tight"
           >
             Selected Work
           </motion.h2>
@@ -200,7 +200,7 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-3 sm:mt-4 text-base sm:text-lg text-gray-600 font-normal leading-relaxed max-w-xl"
+            className="mt-3 sm:mt-4 text-base sm:text-lg text-brand-text-sec font-normal leading-relaxed max-w-xl"
           >
             Digital experiences designed to help businesses stand out.
           </motion.p>
@@ -220,14 +220,14 @@ export default function Portfolio() {
           onKeyDown={handleKeyDown}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
-          className="relative w-full max-w-[1400px] mx-auto h-[320px] sm:h-[420px] md:h-[480px] lg:h-[530px] flex items-center justify-center select-none overflow-x-clip outline-none focus-visible:ring-2 focus-visible:ring-[#22C55E] rounded-3xl"
+          className="relative w-full max-w-[1400px] mx-auto h-[320px] sm:h-[420px] md:h-[480px] lg:h-[530px] flex items-center justify-center select-none overflow-x-clip outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-3xl"
           style={{ perspective: '1200px' }}
         >
           {/* Navigation Arrows */}
           <button
             onClick={handlePrev}
             aria-label="Previous project"
-            className="absolute left-2 sm:left-4 md:left-8 z-40 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white/95 backdrop-blur-md border border-[#E5E7EB] shadow-lg hover:shadow-xl hover:border-[#22C55E] hover:text-[#22C55E] text-[#111827] flex items-center justify-center transition-all duration-300 active:scale-95 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#22C55E] cursor-pointer"
+            className="absolute left-2 sm:left-4 md:left-8 z-40 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-[#0A0D0B]/80 backdrop-blur-md border border-white/10 shadow-xl hover:shadow-[0_0_20px_rgba(183,255,69,0.3)] hover:border-brand-accent hover:bg-brand-accent hover:text-[#050706] text-white flex items-center justify-center transition-all duration-300 active:scale-95 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent cursor-pointer"
           >
             <ChevronLeft size={24} className="group-hover:-translate-x-0.5 transition-transform" />
           </button>
@@ -235,7 +235,7 @@ export default function Portfolio() {
           <button
             onClick={handleNext}
             aria-label="Next project"
-            className="absolute right-2 sm:right-4 md:right-8 z-40 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-white/95 backdrop-blur-md border border-[#E5E7EB] shadow-lg hover:shadow-xl hover:border-[#22C55E] hover:text-[#22C55E] text-[#111827] flex items-center justify-center transition-all duration-300 active:scale-95 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#22C55E] cursor-pointer"
+            className="absolute right-2 sm:right-4 md:right-8 z-40 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-[#0A0D0B]/80 backdrop-blur-md border border-white/10 shadow-xl hover:shadow-[0_0_20px_rgba(183,255,69,0.3)] hover:border-brand-accent hover:bg-brand-accent hover:text-[#050706] text-white flex items-center justify-center transition-all duration-300 active:scale-95 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent cursor-pointer"
           >
             <ChevronRight size={24} className="group-hover:translate-x-0.5 transition-transform" />
           </button>
@@ -333,10 +333,14 @@ export default function Portfolio() {
                   }`}
                 >
                   {/* Browser Window Mockup Card */}
-                  <div className="w-full h-full rounded-2xl sm:rounded-3xl bg-white border border-[#E5E7EB] shadow-[0_20px_50px_-10px_rgba(0,0,0,0.12),0_10px_20px_-5px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col group relative">
+                  <div className={`w-full h-full rounded-2xl sm:rounded-3xl bg-[#0A0D0B] border transition-all duration-300 overflow-hidden flex flex-col group relative ${
+                    isActive 
+                      ? 'border-brand-accent/40 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),0_0_35px_rgba(183,255,69,0.18)]' 
+                      : 'border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)]'
+                  }`}>
                     
                     {/* Browser Chrome Header */}
-                    <div className="h-7 sm:h-9 bg-[#F9FAFB] border-b border-[#E5E7EB] px-3 sm:px-4 flex items-center justify-between shrink-0">
+                    <div className="h-7 sm:h-9 bg-[#0d120f] border-b border-white/10 px-3 sm:px-4 flex items-center justify-between shrink-0">
                       <div className="flex items-center gap-1.5 sm:gap-2">
                         <div className="w-2.5 h-2.5 rounded-full bg-[#EF4444]/80" />
                         <div className="w-2.5 h-2.5 rounded-full bg-[#F59E0B]/80" />
@@ -344,20 +348,20 @@ export default function Portfolio() {
                       </div>
 
                       {/* Mockup URL Pill */}
-                      <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-white border border-[#E5E7EB] text-[10px] sm:text-[11px] font-mono text-gray-500 max-w-[200px] sm:max-w-[260px] truncate">
-                        <Lock size={10} className="text-[#22C55E] shrink-0" />
+                      <div className="flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-white/5 border border-white/10 text-[10px] sm:text-[11px] font-mono text-brand-text-sec/70 max-w-[200px] sm:max-w-[260px] truncate">
+                        <Lock size={10} className="text-brand-accent shrink-0" />
                         <span className="truncate">thundro.design/work/{project.urlSlug}</span>
                       </div>
 
                       <div className="w-10 sm:w-12 text-right">
-                        <span className="text-[9px] font-mono uppercase text-gray-400 font-semibold hidden sm:inline">
+                        <span className="text-[9px] font-mono uppercase text-brand-text-sec/50 font-semibold hidden sm:inline">
                           0{project.id}
                         </span>
                       </div>
                     </div>
 
                     {/* Preview Image with Depth Glow */}
-                    <div className="relative w-full flex-grow overflow-hidden bg-gray-100">
+                    <div className="relative w-full flex-grow overflow-hidden bg-black/60">
                       <img
                         src={project.image}
                         alt={`${project.title} - ${project.badge}`}
@@ -367,16 +371,16 @@ export default function Portfolio() {
                       />
                       
                       {/* Depth reflection overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-tr from-black/5 via-transparent to-white/10 pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/5 pointer-events-none" />
 
                       {/* Semi-transparent tint for non-active cards to emphasize depth */}
                       {!isActive && (
-                        <div className="absolute inset-0 bg-white/10 backdrop-blur-[0.5px] transition-opacity duration-300" />
+                        <div className="absolute inset-0 bg-[#050706]/40 backdrop-blur-[0.5px] transition-opacity duration-300" />
                       )}
 
                       {/* Floating Category Tag inside preview */}
                       <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 z-10">
-                        <span className="px-3 py-1 rounded-full bg-black/75 backdrop-blur-md text-white text-[10px] sm:text-xs font-semibold tracking-wider uppercase border border-white/20 shadow-md">
+                        <span className="px-3 py-1 rounded-full bg-[#050706]/85 backdrop-blur-md text-brand-accent text-[10px] sm:text-xs font-semibold tracking-wider uppercase border border-brand-accent/30 font-mono shadow-md">
                           {project.category}
                         </span>
                       </div>
@@ -403,13 +407,13 @@ export default function Portfolio() {
                 role="tab"
                 aria-selected={isDotActive}
                 aria-label={`Show ${proj.title}`}
-                className="p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#22C55E] rounded-full cursor-pointer"
+                className="p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent rounded-full cursor-pointer"
               >
                 <span
                   className={`block h-2 rounded-full transition-all duration-300 ${
                     isDotActive 
-                      ? 'w-8 bg-[#22C55E]' 
-                      : 'w-2 bg-[#E5E7EB] hover:bg-gray-400'
+                      ? 'w-8 bg-brand-accent shadow-[0_0_12px_rgba(183,255,69,0.5)]' 
+                      : 'w-2 bg-white/20 hover:bg-white/40'
                   }`}
                 />
               </button>
@@ -426,28 +430,28 @@ export default function Portfolio() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.35, ease: 'easeOut' }}
-              className="p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-[#F9FAFB] border border-[#E5E7EB] shadow-xl text-center flex flex-col items-center"
+              className="p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl bg-[#0A0D0B]/85 backdrop-blur-xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.8)] text-center flex flex-col items-center"
             >
               {/* Badge */}
               <div className="inline-flex items-center gap-2 mb-3 sm:mb-4">
-                <span className="text-[10px] sm:text-[11px] font-bold tracking-wider text-[#15803D] uppercase px-3 py-1 rounded-full border border-[#22C55E]/40 bg-[#22C55E]/10 font-mono">
+                <span className="text-[10px] sm:text-[11px] font-bold tracking-wider text-brand-accent uppercase px-3 py-1 rounded-full border border-brand-accent/30 bg-brand-accent/10 font-mono">
                   {activeProject.badge}
                 </span>
-                <span className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider hidden sm:inline">
+                <span className="text-[11px] font-semibold text-brand-text-sec uppercase tracking-wider hidden sm:inline">
                   • {activeProject.category}
                 </span>
               </div>
 
               {/* Title & Tagline */}
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-[#111827] uppercase tracking-tight mb-2">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white uppercase tracking-tight mb-2">
                 {activeProject.title}
               </h3>
-              <p className="text-xs sm:text-sm font-semibold text-[#15803D] uppercase tracking-wider mb-4">
+              <p className="text-xs sm:text-sm font-semibold text-brand-accent uppercase tracking-wider mb-4 font-mono">
                 {activeProject.tagline}
               </p>
 
               {/* Description */}
-              <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-xl mb-6 font-normal">
+              <p className="text-brand-text-sec text-sm sm:text-base leading-relaxed max-w-xl mb-6 font-normal">
                 {activeProject.description}
               </p>
 
@@ -456,7 +460,7 @@ export default function Portfolio() {
                 {activeProject.tech.map((t) => (
                   <span 
                     key={t} 
-                    className="text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase text-gray-600 bg-white border border-[#E5E7EB] px-3 py-1 rounded-full shadow-sm"
+                    className="text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase text-brand-text-sec bg-white/5 border border-white/10 px-3 py-1 rounded-full shadow-sm"
                   >
                     {t}
                   </span>
@@ -473,7 +477,7 @@ export default function Portfolio() {
                   }
                   target={siteConfig?.contact?.whatsapp ? '_blank' : '_self'}
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#111827] text-white hover:bg-[#22C55E] hover:text-black font-bold text-xs tracking-widest uppercase transition-all duration-300 shadow-md hover:shadow-lg w-full sm:w-auto group active:scale-95 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-brand-accent text-[#050706] hover:bg-white hover:text-black font-bold text-xs tracking-widest uppercase transition-all duration-300 shadow-[0_0_20px_rgba(183,255,69,0.25)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] w-full sm:w-auto group active:scale-95 cursor-pointer"
                 >
                   <span>Request Similar Build</span>
                   <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -481,7 +485,7 @@ export default function Portfolio() {
 
                 <Link
                   to="/portfolio"
-                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-[#E5E7EB] bg-white hover:bg-gray-50 text-[#111827] hover:border-[#111827] font-bold text-xs tracking-widest uppercase transition-all duration-300 w-full sm:w-auto shadow-sm hover:shadow active:scale-95 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 text-white hover:border-white/30 font-bold text-xs tracking-widest uppercase transition-all duration-300 w-full sm:w-auto shadow-sm active:scale-95 cursor-pointer"
                 >
                   <span>Explore Full Portfolio</span>
                   <ArrowRight size={15} />
